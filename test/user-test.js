@@ -6,13 +6,16 @@ import users from '../src/data/test-data-users';
 
 describe('User', function() {
   let userInfo;
-  let user;
+  let user1;
+  let user2;
+  let user3;
   let recipe;
 
   beforeEach(function() {
-    userInfo = data.users[0];
+    // console.log('data <>>>', data.users);
+    // userInfo = data.users[0]; // data.users is `undefined
     // test file doesn't work:: TypeError: Cannot read property '0' of undefined at Context.<anonymous> (dist/webpack:/test/user-test.js:12:20)
-    user = new User(userInfo)
+    // user = new User(userInfo)
 
     recipe = {name: 'Chicken Parm', type: ['italian', 'dinner']};
   });
