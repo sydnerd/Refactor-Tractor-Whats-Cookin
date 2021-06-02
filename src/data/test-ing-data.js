@@ -1,4 +1,4 @@
-let ingredientsData = [
+export const testIngredientsData = [
     {
       "id": 20081,
       "name": "wheat flour",
@@ -15,4 +15,3 @@ let ingredientsData = [
       "estimatedCostInCents": 472
     }
 ]
-  
