@@ -12,6 +12,7 @@ describe('User', function() {
   let recipe;
 
   beforeEach(function() {
+    console.log('users <>>>', users);
     // console.log('data <>>>', data.users);
     // userInfo = data.users[0]; // data.users is `undefined
     // test file doesn't work:: TypeError: Cannot read property '0' of undefined at Context.<anonymous> (dist/webpack:/test/user-test.js:12:20)
