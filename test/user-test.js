@@ -1,15 +1,17 @@
 import { expect } from 'chai';
 
 import User from '../src/user';
-import data from '../src/data/users-data';
+// import data from '../src/data/users-data';
+import users from '../src/data/test-data-users';
 
 describe('User', function() {
-  let user;
   let userInfo;
+  let user;
   let recipe;
 
   beforeEach(function() {
     userInfo = data.users[0];
+    // test file doesn't work:: TypeError: Cannot read property '0' of undefined at Context.<anonymous> (dist/webpack:/test/user-test.js:12:20)
     user = new User(userInfo)
 
     recipe = {name: 'Chicken Parm', type: ['italian', 'dinner']};
