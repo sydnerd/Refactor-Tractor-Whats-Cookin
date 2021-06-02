@@ -3,10 +3,12 @@ import Ingredient from '../src/ingredient';
 
 describe.only('Ingredient', () => {
 
-  let ingredient;
+  let ingredient1, ingredient2, ingredient3;
 
   beforeEach('Instantiate ingredient', () => {
-    ingredient = new Ingredient(1094, 'powdered sugar', 312);
+    ingredient1 = new Ingredient(1094, 'powdered sugar', 312);
+    ingredient2 = new Ingredient(234, 'eggs', 523);
+    ingredient3 = new Ingredient(23453, 'butter', 524);
   });
 
   it('Should be a function', () => {
@@ -14,37 +16,34 @@ describe.only('Ingredient', () => {
   });
 
   it('Should be an instance of an ingredient', () => {
-    expect(ingredient).to.be.an.instanceOf(Ingredient);
+    expect(ingredient1).to.be.an.instanceOf(Ingredient);
+    expect(ingredient2).to.be.an.instanceOf(Ingredient);
+    expect(ingredient3).to.be.an.instanceOf(Ingredient);
   });
 
   it('Should have an id', () => {
-    expect(ingredient.id).to.equal(1094);
+    expect(ingredient2.id).to.equal(234);
+    expect(ingredient3.id).to.equal(23453);
   });
 
   it('Should have an id that is a number', () => {
-    expect(ingredient.id).to.be.a('number');
+    expect(ingredient1.id).to.be.a('number');
   });
 
   it('Should have a name', () => {
-    expect(ingredient.name).to.equal('powdered sugar');
+    expect(ingredient3.name).to.equal('butter');
   });
 
   it('Should have a name that is a string', () => {
-    expect(ingredient.name).to.be.a('string');
+    expect(ingredient1.name).to.be.a('string');
   });
 
   it('Should have an estimated cost in cents', () => {
-    expect(ingredient.estimatedCostInCents).to.equal(312);
+    expect(ingredient2.estimatedCostInCents).to.equal(523);
   });
 
   it('Should have cost in cents be a number', () => {
-    expect(ingredient.estimatedCostInCents).to.be.a('number');
+    expect(ingredient3.estimatedCostInCents).to.be.a('number');
   });
 
 });
-
-//
-//   it('Should have a cost that is a number', () => {
-//     expect(ingredient.estimatedCostInCents).to.be.a('number');
-//   });
-// })
