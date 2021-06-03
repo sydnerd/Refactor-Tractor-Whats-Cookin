@@ -1,7 +1,8 @@
 import { expect } from 'chai';
 
 import Recipe from '../src/recipe';
-import data from '../src/data/recipe-data';
+import recipeData from '../src/data/recipe-data';
+import ingredientsData from '../src/data/ingredient-data';
 
 describe('Recipe', function() {
   let recipe;

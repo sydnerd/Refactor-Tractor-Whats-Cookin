@@ -212,11 +212,13 @@ function addRecipeImage(recipe) {
   document.getElementById("recipe-title").style.backgroundImage = `url(${recipe.image})`;
 }
 
+
 function generateIngredients(recipe) {
   return recipe && recipe.ingredients.map(i => {
     return `${capitalize(i.name)} (${i.quantity.amount} ${i.quantity.unit})`
   }).join(", ");
 }
+
 
 function generateInstructions(recipe) {
   let instructionsList = "";
