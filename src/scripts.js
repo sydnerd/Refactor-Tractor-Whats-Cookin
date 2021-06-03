@@ -1,6 +1,7 @@
 import users from './data/users-data';
 import recipeData from  './data/recipe-data';
 import ingredientData from './data/ingredient-data';
+import { fetchApiData } from './apiCalls';
 
 import './css/base.scss';
 import './css/styles.scss';
@@ -24,8 +25,14 @@ let showPantryRecipes = document.querySelector(".show-pantry-recipes-btn");
 let tagList = document.querySelector(".tag-list");
 let user;
 
+const getIngredientsData = () =>
+  fetch("http://localhost:3001/api/v1/ingredients")
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.log("ERROR"))
 
 window.addEventListener("load", createCards);
+window.addEventListener("load", getIngredientsData);
 window.addEventListener("load", findTags);
 window.addEventListener("load", generateUser);
 allRecipesBtn.addEventListener("click", showAllRecipes);
@@ -36,6 +43,23 @@ savedRecipesBtn.addEventListener("click", showSavedRecipes);
 searchBtn.addEventListener("click", searchRecipes);
 showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
 searchForm.addEventListener("submit", pressEnterSearch);
+
+// API CALLS
+// const getIngredientsData = () =>
+//   fetch("http://localhost:3001/api/v1/ingredients")
+//     .then(response => response.json())
+//     .then(console.log(data))
+//     .catch(err => console.log("ERROR"))
+
+// const getRecipesData = () =>
+//   fetch("http://localhost:3001/api/v1/recipes")
+//     .then(response => response.json())
+//     // .catch(err => alert(message))
+
+// const getUsersData = () =>
+//   fetch("http://localhost:3001/api/v1/users")
+//     .then(response => response.json())
+//     // .catch(err => alert(message))
 
 // GENERATE A USER ON LOAD
 function generateUser() {
