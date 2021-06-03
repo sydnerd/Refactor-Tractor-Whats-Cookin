@@ -12,7 +12,9 @@ describe('User', function() {
   let recipe;
 
   beforeEach(function() {
-    console.log('users <>>>', users);
+    // console.log('users <>>>', users);
+    user1 = users[0];
+    console.log('user1 <>>>', user1);
     // console.log('data <>>>', data.users);
     // userInfo = data.users[0]; // data.users is `undefined
     // test file doesn't work:: TypeError: Cannot read property '0' of undefined at Context.<anonymous> (dist/webpack:/test/user-test.js:12:20)
@@ -26,11 +28,11 @@ describe('User', function() {
   });
 
   it('should initialize with an id', function() {
-    expect(user.id).to.eq(1);
+    expect(user1.id).to.eq(1);
   });
 
   it('should initialize with a name', function() {
-    expect(user.name).to.eq('Saige O\'Kon');
+    expect(user2.name).to.eq('Saige O\'Kon');
   });
 
   it('should initialize with a pantry', function() {
