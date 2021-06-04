@@ -1,6 +1,6 @@
-import users from './data/users-data';
+// import users from './data/users-data';
 import recipeData from  './data/recipe-data';
-import ingredientData from './data/ingredient-data';
+import ingredientsData from './data/ingredient-data';
 
 import './css/base.scss';
 import './css/styles.scss';
@@ -24,28 +24,41 @@ let showPantryRecipes = document.querySelector(".show-pantry-recipes-btn");
 let tagList = document.querySelector(".tag-list");
 let user;
 
-const fetchIngredientsData = () =>
-  fetch("http://localhost:3001/api/v1/ingredients")
+// API CALLS
+// They wont work unless initialized before the window event listener
+const fetchIngredientsData = () => {
+  return fetch("http://localhost:3001/api/v1/ingredients")
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(err => console.log("ERROR"))
+}
 
-const fetchRecipeData = () =>
-  fetch("http://localhost:3001/api/v1/recipes")
+const fetchRecipeData = () => {
+  return fetch("http://localhost:3001/api/v1/recipes")
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(err => console.log("ERROR"))
+}
 
-const fetchUserData = () =>
-  fetch("http://localhost:3001/api/v1/users")
+const fetchUserData = () => {
+  return fetch("http://localhost:3001/api/v1/users")
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(err => console.log("ERROR"))
+}
 
-window.addEventListener("load", createCards);
+const fetchAllData = () => {
+  const promises = [ fetchIngredientsData(), fetchRecipeData(), fetchUserData() ]
+  return Promise.all(promises)
+    .catch(error => console.log("ERROR"))
+  }
+
+
+
 window.addEventListener("load", fetchIngredientsData)
 window.addEventListener("load", fetchRecipeData)
 window.addEventListener("load", fetchUserData)
+window.addEventListener("load", createCards);
 window.addEventListener("load", findTags);
 window.addEventListener("load", generateUser);
 allRecipesBtn.addEventListener("click", showAllRecipes);
@@ -56,9 +69,6 @@ savedRecipesBtn.addEventListener("click", showSavedRecipes);
 searchBtn.addEventListener("click", searchRecipes);
 showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
 searchForm.addEventListener("submit", pressEnterSearch);
-
-// API CALLS
-
 
 // GENERATE A USER ON LOAD
 function generateUser() {
