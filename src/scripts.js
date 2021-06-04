@@ -26,7 +26,7 @@ let tagList = document.querySelector(".tag-list");
 let user;
 
 window.addEventListener("load", loadData)
-window.addEventListener("load", createCards);
+// window.addEventListener("load", createCards);
 window.addEventListener("load", findTags);
 // window.addEventListener("load", generateUser);
 allRecipesBtn.addEventListener("click", showAllRecipes);
@@ -43,9 +43,9 @@ searchForm.addEventListener("submit", pressEnterSearch);
 function loadData() {
   fetchAllData()
     .then(function(data) {
-      // findPantryInfo(data[0])
-      console.log(data)
-      // createCards(data[1])
+      // findPantryInfo(data[0].ingredientsData)
+      createCards(data[1].recipeData)
+      findTags(data[1].recipeData)
       generateUser(data[2].usersData)
     })
 }
@@ -62,12 +62,9 @@ function generateUser(userData) {
     </div>`;
   document.querySelector(".banner-image").insertAdjacentHTML("afterbegin",
     welcomeMsg);
-  // removing to add to loadData function
-  // findPantryInfo();
 }
 
-// CREATE RECIPE CARDS
-function createCards() {
+function createCards(recipeData) {
   recipeData.forEach(recipe => {
     let recipeInfo = new Recipe(recipe);
     let shortRecipeName = recipeInfo.name;
@@ -96,7 +93,7 @@ function addToDom(recipeInfo, shortRecipeName) {
 }
 
 // FILTER BY RECIPE TAGS
-function findTags() {
+function findTags(recipeData) {
   let tags = [];
   recipeData.forEach(recipe => {
     recipe.tags.forEach(tag => {
