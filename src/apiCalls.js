@@ -28,5 +28,5 @@ export {
     fetchAllData,
     fetchIngredientsData,
     fetchRecipeData,
-    fetchUserData,
+    fetchUserData
 };
