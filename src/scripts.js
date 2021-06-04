@@ -1,6 +1,6 @@
 // import users from './data/users-data';
-import recipeData from  './data/recipe-data';
-import ingredientsData from './data/ingredient-data';
+// import recipeData from  './data/recipe-data';
+// import ingredientsData from './data/ingredient-data';
 import { fetchAllData } from './apiCalls';
 
 import './css/base.scss';
@@ -26,11 +26,9 @@ let tagList = document.querySelector(".tag-list");
 let user;
 
 window.addEventListener("load", loadData)
-// window.addEventListener("load", fetchRecipeData)
-// window.addEventListener("load", fetchUserData)
 window.addEventListener("load", createCards);
 window.addEventListener("load", findTags);
-window.addEventListener("load", generateUser);
+// window.addEventListener("load", generateUser);
 allRecipesBtn.addEventListener("click", showAllRecipes);
 filterBtn.addEventListener("click", findCheckedBoxes);
 main.addEventListener("click", addToMyRecipes);
@@ -40,13 +38,23 @@ searchBtn.addEventListener("click", searchRecipes);
 showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
 searchForm.addEventListener("submit", pressEnterSearch);
 
-// GENERATE A USER ON LOAD
+//WINDOW LOADING FUNCTIONS
+
 function loadData() {
   fetchAllData()
+    .then(function(data) {
+      // findPantryInfo(data[0])
+      console.log(data)
+      // createCards(data[1])
+      generateUser(data[2].usersData)
+    })
 }
 
-function generateUser() {
-  user = new User(users[Math.floor(Math.random() * users.length)]);
+function generateUser(userData) {
+  console.log(userData)
+  let randomUser = userData[Math.floor(Math.random() * userData.length)]
+  console.log(randomUser)
+  let user = new User(randomUser);
   let firstName = user.name.split(" ")[0];
   let welcomeMsg = `
     <div class="welcome-msg">
@@ -54,7 +62,8 @@ function generateUser() {
     </div>`;
   document.querySelector(".banner-image").insertAdjacentHTML("afterbegin",
     welcomeMsg);
-  findPantryInfo();
+  // removing to add to loadData function
+  // findPantryInfo();
 }
 
 // CREATE RECIPE CARDS
