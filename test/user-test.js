@@ -58,6 +58,7 @@ describe.only('User', () => {
 
   it('should be able to save a recipe to favoriteRecipes', () => {
     user3.saveRecipe(recipe);
+    
     expect(user3.favoriteRecipes[0].name).to.equal('Rice bowl with Fried Egg');
   });
 
