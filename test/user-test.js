@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 
 import User from '../src/user';
-// import data from '../src/data/users-data';
 import { users, testRecipes } from '../src/data/test-data-users';
 
 
@@ -14,7 +13,6 @@ describe.only('User', () => {
 
   beforeEach(() => {
     user1 = new User(users[0]);
-    // console.log('user1 <>>>', user1);
     user2 = new User(users[1]);
     user3 = new User(users[2]);
     recipe = testRecipes[0];
@@ -23,6 +21,10 @@ describe.only('User', () => {
   it('should be a function', () => {
     expect(User).to.be.a('function');
   });
+
+  it('should be a new instance of User', () => {
+    expect(user1).to.be.an.instanceof(User);
+  })
 
   it('should store an id', () => {
     expect(user1.id).to.eq(1);
@@ -72,11 +74,19 @@ describe.only('User', () => {
 
   it('should be able to filter recipes by type', () => {
     user2.saveRecipe(recipe);
+
     expect(user2.filterRecipes('breakfast')).to.deep.equal([recipe]);
   });
 
-  it.skip('should be able to search recipes by name', () => {
-    user.saveRecipe(recipe);
-    expect(user.searchForRecipe('Chicken Parm')).to.deep.equal([recipe]);
+  it('should be able to search recipes by name', () => {
+    user3.saveRecipe(recipe);
+
+    expect(user3.searchForRecipe('Rice bowl with Fried Egg')).to.deep.equal([recipe]);
   });
+
+  it('should be able to search a portion of the name', () => {
+    user1.saveRecipe(recipe);
+
+    expect(user1.searchForRecipe('bowl')).to.deep.equal([recipe]);
+  })
 });
