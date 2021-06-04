@@ -23,7 +23,7 @@ class User {
   }
 
   filterRecipes(type) {
-    return this.favoriteRecipes.filter(recipe => recipe.type.includes(type));
+    return this.favoriteRecipes.filter(recipe => recipe.tags.includes(type));
   }
 
   searchForRecipe(keyword) {
