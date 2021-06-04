@@ -12,10 +12,10 @@ describe.only('User', () => {
   let recipe;
 
   beforeEach(() => {
-    user1 = users[0];
-    // console.log('user1 <>>>', user1);
-    user2 = users[1];
-    user3 = users[2];
+    user1 = new User(users[0]);
+    console.log('user1 <>>>', user1);
+    user2 = new User(users[1]);
+    user3 = new User(users[2]);
     recipe = {name: 'Chicken Parm', type: ['italian', 'dinner']};
   });
 
@@ -29,16 +29,21 @@ describe.only('User', () => {
     expect(user3.id).to.eq(3);
   });
 
-  it.skip('should store a name', () => {
-    expect(user2.name).to.eq('Saige O\'Kon');
+  it('should store a name', () => {
+    expect(user1.name).to.eq('Padme Amidala');
+    expect(user2.name).to.eq('Ahsoka Tano');
+    expect(user3.name).to.eq('Leia Organa');
   });
 
-  it.skip('should store a pantry', () => {
-    expect(user.pantry[0].ingredient).to.eq(11477);
+  it('should store a pantry', () => {
+    expect(user1.pantry[0].ingredient).to.eq(1);
+    expect(user2.pantry[1].ingredient).to.eq(3);
+    expect(user3.pantry[2].ingredient).to.eq(5);
   });
 
-  it.skip('should store an empty favoriteRecipes array', () => {
-    expect(user.favoriteRecipes).to.deep.equal([]);
+  it('should store an empty favoriteRecipes array', () => {
+    console.log(user1);
+    expect(user1.favoriteRecipes).to.deep.equal([]);
   });
 
   it.skip('should store an empty recipesToCook array', () => {
