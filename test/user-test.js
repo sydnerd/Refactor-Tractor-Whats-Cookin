@@ -33,19 +33,21 @@ describe.only('User', () => {
   });
 
   it('should store a name', () => {
-    expect(user1.name).to.eq('Padme Amidala');
-    expect(user2.name).to.eq('Ahsoka Tano');
-    expect(user3.name).to.eq('Leia Organa');
+    expect(user1.name).to.equal('Padme Amidala');
+    expect(user2.name).to.equal('Ahsoka Tano');
+    expect(user3.name).to.equal('Leia Organa');
   });
 
   it('should store a pantry', () => {
-    expect(user1.pantry[0].ingredient).to.eq(1);
-    expect(user2.pantry[1].ingredient).to.eq(3);
-    expect(user3.pantry[2].ingredient).to.eq(5);
+    expect(user1.pantry[0].ingredient).to.equal(1);
+    expect(user2.pantry[1].ingredient).to.equal(3);
+    expect(user3.pantry[2].ingredient).to.equal(5);
   });
 
   it('should store an empty favoriteRecipes array', () => {
     expect(user1.favoriteRecipes).to.deep.equal([]);
+    expect(user2.favoriteRecipes).to.deep.equal([]);
+    expect(user3.favoriteRecipes).to.deep.equal([]);
   });
 
   it('should store an empty recipesToCook array', () => {
