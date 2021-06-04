@@ -1,6 +1,3 @@
-// import users from './data/users-data';
-// import recipeData from  './data/recipe-data';
-// import ingredientsData from './data/ingredient-data';
 import { fetchAllData } from './apiCalls';
 
 import './css/base.scss';
@@ -59,7 +56,6 @@ function fillCookbook(recipeData) {
 
 function fillPantry(ingredientData) {
   ingredientData.forEach(ingredient => pantry.push(ingredient))
-  console.log(pantry)
 }
 
 //CONTENT LOADING FUNCTIONS
@@ -214,13 +210,10 @@ function showSavedRecipes() {
 
 // CREATE RECIPE INSTRUCTIONS
 function openRecipeInfo(event) {
-  // try commenting out later
   fullRecipeInfo.style.display = "inline";
   let recipeId = event.path.find(e => e.id).id;
   let matchedRecipe = cookbook.find(recipe => recipe.id === Number(recipeId));
-  // console.log(matchedRecipe)
   let matchedIngredients = generateIngredients(matchedRecipe)
-  // console.log(matchedIngredients)
   generateRecipeTitle(matchedRecipe, matchedIngredients);
   addRecipeImage(matchedRecipe);
   generateInstructions(matchedRecipe);
@@ -243,7 +236,6 @@ function addRecipeImage(recipe) {
 
 function generateIngredients(recipe) {
   return recipe.ingredients.map(i => {
-    console.log(i)
     const ingredient = getIngredientName(i.id);
     let ingredientAmount = parseFloat(i.quantity.amount.toFixed(2))
     return `${capitalize(ingredient)} (${ingredientAmount} ${i.quantity.unit})`
@@ -252,7 +244,6 @@ function generateIngredients(recipe) {
 
 function getIngredientName(id) {
   let match = pantry.find(ingredient => id === ingredient.id)
-  console.log(pantry)
   if (match) {
     return match.name
   }
