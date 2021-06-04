@@ -2,7 +2,8 @@ import { expect } from 'chai';
 
 import User from '../src/user';
 // import data from '../src/data/users-data';
-import users from '../src/data/test-data-users';
+import { users, testRecipes } from '../src/data/test-data-users';
+
 
 describe.only('User', () => {
   let userInfo;
@@ -13,7 +14,7 @@ describe.only('User', () => {
 
   beforeEach(() => {
     user1 = new User(users[0]);
-    console.log('user1 <>>>', user1);
+    // console.log('user1 <>>>', user1);
     user2 = new User(users[1]);
     user3 = new User(users[2]);
     recipe = {name: 'Chicken Parm', type: ['italian', 'dinner']};
@@ -42,17 +43,16 @@ describe.only('User', () => {
   });
 
   it('should store an empty favoriteRecipes array', () => {
-    console.log(user1);
     expect(user1.favoriteRecipes).to.deep.equal([]);
   });
 
-  it.skip('should store an empty recipesToCook array', () => {
-    expect(user.recipesToCook).to.deep.equal([]);
+  it('should store an empty recipesToCook array', () => {
+    expect(user2.recipesToCook).to.deep.equal([]);
   });
 
-  it.skip('should be able to save a recipe to favoriteRecipes', () => {
-    user.saveRecipe(recipe);
-    expect(user.favoriteRecipes[0].name).to.equal('Chicken Parm');
+  it('should be able to save a recipe to favoriteRecipes', () => {
+    user3.saveRecipe(recipe);
+    expect(user3.favoriteRecipes[0].name).to.equal('Chicken Parm');
   });
 
   it.skip('should be able to decide to cook a recipe', () => {
