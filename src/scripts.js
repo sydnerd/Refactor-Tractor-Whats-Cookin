@@ -307,7 +307,7 @@ function findPantryInfo() {
       }
     });
     if (itemInfo && originalIngredient) {
-      originalIngredient.count += item.amount;
+      originalIngredient.amount = item.amount;
     } else if (itemInfo) {
       pantryInfo.push({name: itemInfo.name, count: item.amount});
     }
