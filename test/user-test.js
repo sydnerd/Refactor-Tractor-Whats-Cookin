@@ -58,8 +58,16 @@ describe.only('User', () => {
 
   it('should be able to save a recipe to favoriteRecipes', () => {
     user3.saveRecipe(recipe);
-    
+
     expect(user3.favoriteRecipes[0].name).to.equal('Rice bowl with Fried Egg');
+  });
+
+  it('should remove a recipe if it is not a favorite anymore', () => {
+    user1.saveRecipe(recipe);
+    expect(user1.favoriteRecipes[0].id).to.equal(1);
+
+    user1.removeRecipe(recipe);
+    expect(user1.favoriteRecipes).to.deep.equal([]);
   });
 
   it('should be able to decide to cook a recipe', () => {
