@@ -51,7 +51,9 @@ describe.only('User', () => {
   });
 
   it('should store an empty recipesToCook array', () => {
+    expect(user1.recipesToCook).to.deep.equal([]);
     expect(user2.recipesToCook).to.deep.equal([]);
+    expect(user3.recipesToCook).to.deep.equal([]);
   });
 
   it('should be able to save a recipe to favoriteRecipes', () => {
