@@ -1,6 +1,7 @@
 // import users from './data/users-data';
 import recipeData from  './data/recipe-data';
 import ingredientsData from './data/ingredient-data';
+import { fetchAllData } from './apiCalls';
 
 import './css/base.scss';
 import './css/styles.scss';
@@ -24,40 +25,9 @@ let showPantryRecipes = document.querySelector(".show-pantry-recipes-btn");
 let tagList = document.querySelector(".tag-list");
 let user;
 
-// API CALLS
-// They wont work unless initialized before the window event listener
-const fetchIngredientsData = () => {
-  return fetch("http://localhost:3001/api/v1/ingredients")
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(err => console.log("ERROR"))
-}
-
-const fetchRecipeData = () => {
-  return fetch("http://localhost:3001/api/v1/recipes")
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(err => console.log("ERROR"))
-}
-
-const fetchUserData = () => {
-  return fetch("http://localhost:3001/api/v1/users")
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(err => console.log("ERROR"))
-}
-
-const fetchAllData = () => {
-  const promises = [ fetchIngredientsData(), fetchRecipeData(), fetchUserData() ]
-  return Promise.all(promises)
-    .catch(error => console.log("ERROR"))
-  }
-
-
-
-window.addEventListener("load", fetchIngredientsData)
-window.addEventListener("load", fetchRecipeData)
-window.addEventListener("load", fetchUserData)
+window.addEventListener("load", loadData)
+// window.addEventListener("load", fetchRecipeData)
+// window.addEventListener("load", fetchUserData)
 window.addEventListener("load", createCards);
 window.addEventListener("load", findTags);
 window.addEventListener("load", generateUser);
@@ -71,6 +41,10 @@ showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
 searchForm.addEventListener("submit", pressEnterSearch);
 
 // GENERATE A USER ON LOAD
+function loadData() {
+  fetchAllData()
+}
+
 function generateUser() {
   user = new User(users[Math.floor(Math.random() * users.length)]);
   let firstName = user.name.split(" ")[0];
