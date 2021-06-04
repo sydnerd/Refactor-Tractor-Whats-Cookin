@@ -94,10 +94,17 @@ describe.only('User', () => {
     expect(user3.recipesToCook[0].name).to.equal('Rice bowl with Fried Egg');
   });
 
-  it('should be able to filter recipes by type', () => {
+  it('should be able to filter recipes by tag', () => {
     user2.saveRecipe(recipe1);
+    user3.saveRecipe(recipe1);
+    user3.saveRecipe(recipe2);
 
     expect(user2.filterRecipes('breakfast')).to.deep.equal([recipe1]);
+    expect(user3.filterRecipes('snack')).to.deep.equal([recipe1, recipe2]);
+  });
+
+  it('should return an empty array if no recipes match the filter search', () => {
+    expect(user1.filterRecipes('snack')).to.deep.equal([]);
   });
 
   it('should be able to search recipes by name', () => {
