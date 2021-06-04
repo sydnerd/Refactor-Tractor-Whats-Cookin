@@ -27,9 +27,9 @@ describe.only('User', () => {
   })
 
   it('should store an id', () => {
-    expect(user1.id).to.eq(1);
-    expect(user2.id).to.eq(2);
-    expect(user3.id).to.eq(3);
+    expect(user1.id).to.equal(1);
+    expect(user2.id).to.equal(2);
+    expect(user3.id).to.equal(3);
   });
 
   it('should store a name', () => {
