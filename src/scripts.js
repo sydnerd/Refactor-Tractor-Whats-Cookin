@@ -1,6 +1,4 @@
-import users from './data/users-data';
-import recipeData from  './data/recipe-data';
-import ingredientData from './data/ingredient-data';
+import { fetchAllData } from './apiCalls';
 
 import './css/base.scss';
 import './css/styles.scss';
@@ -22,12 +20,13 @@ let searchForm = document.querySelector("#search");
 let searchInput = document.querySelector("#search-input");
 let showPantryRecipes = document.querySelector(".show-pantry-recipes-btn");
 let tagList = document.querySelector(".tag-list");
+
+let cookbook = [];
+let pantry = [];
 let user;
 
-
-window.addEventListener("load", createCards);
+window.addEventListener("load", loadData)
 window.addEventListener("load", findTags);
-window.addEventListener("load", generateUser);
 allRecipesBtn.addEventListener("click", showAllRecipes);
 filterBtn.addEventListener("click", findCheckedBoxes);
 main.addEventListener("click", addToMyRecipes);
@@ -37,9 +36,32 @@ searchBtn.addEventListener("click", searchRecipes);
 showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
 searchForm.addEventListener("submit", pressEnterSearch);
 
-// GENERATE A USER ON LOAD
-function generateUser() {
-  user = new User(users[Math.floor(Math.random() * users.length)]);
+//WINDOW LOADING FUNCTION
+
+function loadData() {
+  fetchAllData()
+    .then(function(data) {
+      createCards(data[1].recipeData)
+      fillCookbook(data[1].recipeData)
+      fillPantry(data[0].ingredientsData)
+      findTags(data[1].recipeData)
+      generateUser(data[2].usersData)
+      findPantryInfo(data[0].ingredientsData)
+    })
+}
+
+function fillCookbook(recipeData) {
+  recipeData.forEach(recipe => cookbook.push(recipe))
+}
+
+function fillPantry(ingredientData) {
+  ingredientData.forEach(ingredient => pantry.push(ingredient))
+}
+
+//CONTENT LOADING FUNCTIONS
+
+function generateUser(userData) {
+  user = new User(userData[Math.floor(Math.random() * userData.length)]);
   let firstName = user.name.split(" ")[0];
   let welcomeMsg = `
     <div class="welcome-msg">
@@ -47,11 +69,9 @@ function generateUser() {
     </div>`;
   document.querySelector(".banner-image").insertAdjacentHTML("afterbegin",
     welcomeMsg);
-  findPantryInfo();
 }
 
-// CREATE RECIPE CARDS
-function createCards() {
+function createCards(recipeData) {
   recipeData.forEach(recipe => {
     let recipeInfo = new Recipe(recipe);
     let shortRecipeName = recipeInfo.name;
@@ -80,7 +100,7 @@ function addToDom(recipeInfo, shortRecipeName) {
 }
 
 // FILTER BY RECIPE TAGS
-function findTags() {
+function findTags(recipeData) {
   let tags = [];
   recipeData.forEach(recipe => {
     recipe.tags.forEach(tag => {
@@ -149,7 +169,7 @@ function hideUnselectedRecipes(foundRecipes) {
 }
 
 // FAVORITE RECIPE FUNCTIONALITY
-function addToMyRecipes() {
+function addToMyRecipes(event) {
   if (event.target.className === "card-apple-icon") {
     let cardId = parseInt(event.target.closest(".recipe-card").id)
     if (!user.favoriteRecipes.includes(cardId)) {
@@ -192,10 +212,11 @@ function showSavedRecipes() {
 function openRecipeInfo(event) {
   fullRecipeInfo.style.display = "inline";
   let recipeId = event.path.find(e => e.id).id;
-  let recipe = recipeData.find(recipe => recipe.id === Number(recipeId));
-  generateRecipeTitle(recipe, generateIngredients(recipe));
-  addRecipeImage(recipe);
-  generateInstructions(recipe);
+  let matchedRecipe = cookbook.find(recipe => recipe.id === Number(recipeId));
+  let matchedIngredients = generateIngredients(matchedRecipe)
+  generateRecipeTitle(matchedRecipe, matchedIngredients);
+  addRecipeImage(matchedRecipe);
+  generateInstructions(matchedRecipe);
   fullRecipeInfo.insertAdjacentHTML("beforebegin", "<section id='overlay'></div>");
 }
 
@@ -214,9 +235,18 @@ function addRecipeImage(recipe) {
 
 
 function generateIngredients(recipe) {
-  return recipe && recipe.ingredients.map(i => {
-    return `${capitalize(i.name)} (${i.quantity.amount} ${i.quantity.unit})`
+  return recipe.ingredients.map(i => {
+    const ingredient = getIngredientName(i.id);
+    let ingredientAmount = parseFloat(i.quantity.amount.toFixed(2))
+    return `${capitalize(ingredient)} (${ingredientAmount} ${i.quantity.unit})`
   }).join(", ");
+}
+
+function getIngredientName(id) {
+  let match = pantry.find(ingredient => id === ingredient.id)
+  if (match) {
+    return match.name
+  }
 }
 
 
@@ -296,7 +326,7 @@ function showAllRecipes() {
 }
 
 // CREATE AND USE PANTRY
-function findPantryInfo() {
+function findPantryInfo(ingredientData) {
   user.pantry.forEach(item => {
     let itemInfo = ingredientData.find(ingredient => {
       return ingredient.id === item.ingredient;
