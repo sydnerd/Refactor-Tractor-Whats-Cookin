@@ -212,11 +212,13 @@ function addRecipeImage(recipe) {
   document.getElementById("recipe-title").style.backgroundImage = `url(${recipe.image})`;
 }
 
+
 function generateIngredients(recipe) {
   return recipe && recipe.ingredients.map(i => {
     return `${capitalize(i.name)} (${i.quantity.amount} ${i.quantity.unit})`
   }).join(", ");
 }
+
 
 function generateInstructions(recipe) {
   let instructionsList = "";
@@ -296,7 +298,7 @@ function showAllRecipes() {
 // CREATE AND USE PANTRY
 function findPantryInfo() {
   user.pantry.forEach(item => {
-    let itemInfo = ingredientsData.find(ingredient => {
+    let itemInfo = ingredientData.find(ingredient => {
       return ingredient.id === item.ingredient;
     });
     let originalIngredient = pantryInfo.find(ingredient => {
@@ -305,7 +307,7 @@ function findPantryInfo() {
       }
     });
     if (itemInfo && originalIngredient) {
-      originalIngredient.count += item.amount;
+      originalIngredient.amount = item.amount;
     } else if (itemInfo) {
       pantryInfo.push({name: itemInfo.name, count: item.amount});
     }
