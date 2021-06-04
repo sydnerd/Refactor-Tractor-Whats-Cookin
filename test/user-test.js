@@ -17,7 +17,7 @@ describe.only('User', () => {
     // console.log('user1 <>>>', user1);
     user2 = new User(users[1]);
     user3 = new User(users[2]);
-    recipe = {name: 'Chicken Parm', type: ['italian', 'dinner']};
+    recipe = testRecipes[0];
   });
 
   it('should be a function', () => {
@@ -52,17 +52,17 @@ describe.only('User', () => {
 
   it('should be able to save a recipe to favoriteRecipes', () => {
     user3.saveRecipe(recipe);
-    expect(user3.favoriteRecipes[0].name).to.equal('Chicken Parm');
+    expect(user3.favoriteRecipes[0].name).to.equal('Rice bowl with Fried Egg');
   });
 
-  it.skip('should be able to decide to cook a recipe', () => {
-    user.decideToCook(recipe);
-    expect(user.recipesToCook[0].name).to.equal('Chicken Parm');
+  it('should be able to decide to cook a recipe', () => {
+    user1.decideToCook(recipe);
+    expect(user1.recipesToCook[0].id).to.equal(1);
   });
 
-  it.skip('should be able to filter recipes by type', () => {
-    user.saveRecipe(recipe);
-    expect(user.filterRecipes('italian')).to.deep.equal([recipe]);
+  it('should be able to filter recipes by type', () => {
+    user2.saveRecipe(recipe);
+    expect(user2.filterRecipes('breakfast')).to.deep.equal([recipe]);
   });
 
   it.skip('should be able to search recipes by name', () => {
