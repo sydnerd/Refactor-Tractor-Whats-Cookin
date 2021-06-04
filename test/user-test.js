@@ -57,7 +57,17 @@ describe.only('User', () => {
 
   it('should be able to decide to cook a recipe', () => {
     user1.decideToCook(recipe);
+    user2.decideToCook(recipe);
+    user3.decideToCook(recipe);
+
     expect(user1.recipesToCook[0].id).to.equal(1);
+    expect(user2.recipesToCook[0].tags).to.deep.equal([
+      "breakfast",
+      "morning meal",
+      "snack",
+      "appetizer"
+    ]);
+    expect(user3.recipesToCook[0].name).to.equal('Rice bowl with Fried Egg');
   });
 
   it('should be able to filter recipes by type', () => {
