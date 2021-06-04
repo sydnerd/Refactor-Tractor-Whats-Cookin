@@ -9,13 +9,15 @@ describe.only('User', () => {
   let user1;
   let user2;
   let user3;
-  let recipe;
+  let recipe1;
+  let recipe2;
 
   beforeEach(() => {
     user1 = new User(users[0]);
     user2 = new User(users[1]);
     user3 = new User(users[2]);
-    recipe = testRecipes[0];
+    recipe1 = testRecipes[0];
+    recipe2 = testRecipes[1];
   });
 
   it('should be a function', () => {
@@ -57,23 +59,30 @@ describe.only('User', () => {
   });
 
   it('should be able to save a recipe to favoriteRecipes', () => {
-    user3.saveRecipe(recipe);
+    user3.saveRecipe(recipe1);
 
     expect(user3.favoriteRecipes[0].name).to.equal('Rice bowl with Fried Egg');
   });
 
   it('should remove a recipe if it is not a favorite anymore', () => {
-    user1.saveRecipe(recipe);
-    expect(user1.favoriteRecipes[0].id).to.equal(1);
+    user1.saveRecipe(recipe1);
+    user2.saveRecipe(recipe2);
+    user2.saveRecipe(recipe1);
 
-    user1.removeRecipe(recipe);
+    expect(user1.favoriteRecipes[0].id).to.equal(1);
+    expect(user2.favoriteRecipes[0].name).to.equal('Avocado and Tomatillo Salsa');
+
+    user1.removeRecipe(recipe1);
+    user2.removeRecipe(recipe2);
+
     expect(user1.favoriteRecipes).to.deep.equal([]);
+    expect(user2.favoriteRecipes[0].name).to.equal('Rice bowl with Fried Egg');
   });
 
   it('should be able to decide to cook a recipe', () => {
-    user1.decideToCook(recipe);
-    user2.decideToCook(recipe);
-    user3.decideToCook(recipe);
+    user1.decideToCook(recipe1);
+    user2.decideToCook(recipe1);
+    user3.decideToCook(recipe1);
 
     expect(user1.recipesToCook[0].id).to.equal(1);
     expect(user2.recipesToCook[0].tags).to.deep.equal([
@@ -86,20 +95,20 @@ describe.only('User', () => {
   });
 
   it('should be able to filter recipes by type', () => {
-    user2.saveRecipe(recipe);
+    user2.saveRecipe(recipe1);
 
-    expect(user2.filterRecipes('breakfast')).to.deep.equal([recipe]);
+    expect(user2.filterRecipes('breakfast')).to.deep.equal([recipe1]);
   });
 
   it('should be able to search recipes by name', () => {
-    user3.saveRecipe(recipe);
+    user3.saveRecipe(recipe1);
 
-    expect(user3.searchForRecipe('Rice bowl with Fried Egg')).to.deep.equal([recipe]);
+    expect(user3.searchForRecipe('Rice bowl with Fried Egg')).to.deep.equal([recipe1]);
   });
 
   it('should be able to search a portion of the name', () => {
-    user1.saveRecipe(recipe);
+    user1.saveRecipe(recipe1);
 
-    expect(user1.searchForRecipe('bowl')).to.deep.equal([recipe]);
+    expect(user1.searchForRecipe('bowl')).to.deep.equal([recipe1]);
   })
 });
