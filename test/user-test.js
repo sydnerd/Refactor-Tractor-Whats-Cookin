@@ -116,10 +116,10 @@ describe.only('User', () => {
   it('should be able to search a portion of the name', () => {
     user1.saveRecipe(recipe1);
     user2.saveRecipe(recipe1);
-    user2.saveRecipe(recipe3);
+    user2.saveRecipe(recipe2);
 
     expect(user1.searchForRecipe('bowl')).to.deep.equal([recipe1]);
-    // expect(user2.searchForRecipe('avocado')).to.deep.equal([recipe2]); 
+    expect(user2.searchForRecipe('avocado')).to.deep.equal([recipe2]); // fails on this line; can't read the lowercase letter
   });
 
   it('should return an empty array if no recipes match the search', () => {
