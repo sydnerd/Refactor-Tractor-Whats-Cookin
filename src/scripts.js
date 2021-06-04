@@ -38,23 +38,23 @@ searchBtn.addEventListener("click", searchRecipes);
 showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
 searchForm.addEventListener("submit", pressEnterSearch);
 
-//WINDOW LOADING FUNCTIONS
+//WINDOW LOADING FUNCTION
 
 function loadData() {
   fetchAllData()
     .then(function(data) {
-      // findPantryInfo(data[0].ingredientsData)
       createCards(data[1].recipeData)
       findTags(data[1].recipeData)
       generateUser(data[2].usersData)
+      // I don't know where this needs to live... 
+      findPantryInfo(data[0].ingredientData)
     })
 }
 
+//CONTENT LOADING FUNCTIONS
+
 function generateUser(userData) {
-  console.log(userData)
-  let randomUser = userData[Math.floor(Math.random() * userData.length)]
-  console.log(randomUser)
-  let user = new User(randomUser);
+  user = new User(userData[Math.floor(Math.random() * userData.length)]);
   let firstName = user.name.split(" ")[0];
   let welcomeMsg = `
     <div class="welcome-msg">
@@ -95,6 +95,7 @@ function addToDom(recipeInfo, shortRecipeName) {
 // FILTER BY RECIPE TAGS
 function findTags(recipeData) {
   let tags = [];
+  console.log(recipeData)
   recipeData.forEach(recipe => {
     recipe.tags.forEach(tag => {
       if (!tags.includes(tag)) {
@@ -307,9 +308,9 @@ function showAllRecipes() {
 }
 
 // CREATE AND USE PANTRY
-function findPantryInfo() {
+function findPantryInfo(ingredientData) {
   user.pantry.forEach(item => {
-    let itemInfo = ingredientsData.find(ingredient => {
+    let itemInfo = ingredientData.find(ingredient => {
       return ingredient.id === item.ingredient;
     });
     let originalIngredient = pantryInfo.find(ingredient => {
