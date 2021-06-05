@@ -10,6 +10,7 @@ import domUpdates from './dom-updates'
 let allRecipesBtn = document.querySelector("#showAllBtn");
 let filterBtn = document.querySelector("#filterBtn");
 let fullRecipeInfo = document.querySelector("#recipeInstructions");
+let main = document.querySelector("main");
 let menuOpen = false;
 let pantryBtn = document.querySelector("#myPantryBtn");
 let savedRecipesBtn = document.querySelector("#savedRecipesBtn");
@@ -23,6 +24,7 @@ let recipes = [];
 let cookbook = [];
 let pantry = [];
 let user;
+
 
 window.addEventListener("load", loadData)
 window.addEventListener("load", findTags);
@@ -88,16 +90,16 @@ function findTags(recipeData) {
     });
   });
   tags.sort();
-  listTags(tags);
+  domUpdates.listTags(tags);
 }
 
-function listTags(allTags) {
-  allTags.forEach(tag => {
-    let tagHtml = `<li><input type="checkbox" class="checked-tag" id="${tag}">
-      <label for="${tag}">${capitalize(tag)}</label></li>`;
-    tagList.insertAdjacentHTML("beforeend", tagHtml);
-  });
-}
+// function listTags(allTags) {
+//   allTags.forEach(tag => {
+//     let tagHtml = `<li><input type="checkbox" class="checked-tag" id="${tag}">
+//       <label for="${tag}">${capitalize(tag)}</label></li>`;
+//     tagList.insertAdjacentHTML("beforeend", tagHtml);
+//   });
+// }
 
 function capitalize(words) {
   return words.split(" ").map(word => {
@@ -212,7 +214,6 @@ function generateRecipeTitle(recipe, ingredients) {
 function addRecipeImage(recipe) {
   document.getElementById("recipe-title").style.backgroundImage = `url(${recipe.image})`;
 }
-
 
 function generateIngredients(recipe) {
   return recipe.ingredients.map(i => {
