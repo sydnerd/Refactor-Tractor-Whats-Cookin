@@ -32,12 +32,12 @@ h2 { // headers-banners
   margin: 10px 0px 10px 0px; // mixins
 }
 
-h3 {
+h3 { // headers-banners
   color: $dark-apple-green;
   cursor: $point;
-  height: 17%;
-  margin: 5px 5px 10px 0px;
-  transition: .8s ease;
+  height: 17%; // mixins
+  margin: 5px 5px 10px 0px; // mixins
+  transition: .8s ease; // transitions
 }
 
 h4 {
