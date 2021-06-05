@@ -374,7 +374,8 @@ function findRecipesWithCheckedIngredients(selected) {
   recipes.forEach(recipe => {
     let allRecipeIngredients = [];
     recipe.ingredients.forEach(ingredient => {
-      allRecipeIngredients.push(ingredient.name);
+      let ingredientName = getIngredientName(ingredient.id)
+      allRecipeIngredients.push(ingredientName);
     });
     if (!recipeChecker(allRecipeIngredients, ingredientNames)) {
       let domRecipe = document.getElementById(`${recipe.id}`);
