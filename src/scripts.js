@@ -6,7 +6,7 @@ import './css/styles.scss';
 import User from './user';
 import Recipe from './recipe';
 
-let allRecipesBtn = document.querySelector(".show-all-btn");
+let allRecipesBtn = document.querySelector("#showAllBtn");
 let filterBtn = document.querySelector(".filter-btn");
 let fullRecipeInfo = document.querySelector(".recipe-instructions");
 let main = document.querySelector("main");
@@ -205,7 +205,7 @@ function showSavedRecipes() {
     let domRecipe = document.getElementById(`${recipe.id}`);
     domRecipe.style.display = "none";
   });
-  showMyRecipesBanner();
+  // showMyRecipesBanner();
 }
 
 // CREATE RECIPE INSTRUCTIONS
@@ -270,10 +270,12 @@ function exitRecipe() {
 }
 
 // TOGGLE DISPLAYS
-function showMyRecipesBanner() {
-  document.querySelector(".welcome-msg").style.display = "none";
-  document.querySelector(".my-recipes-banner").style.display = "block";
-}
+
+// DO WE NEED THIS? I dont seem to see a change without it! ESpitz
+// function showMyRecipesBanner() {
+//   document.querySelector(".welcome-msg").style.display = "none";
+//   document.querySelector(".my-recipes-banner").style.display = "block";
+// }
 
 function showWelcomeBanner() {
   document.querySelector(".welcome-msg").style.display = "flex";
@@ -322,7 +324,7 @@ function showAllRecipes() {
     let domRecipe = document.getElementById(`${recipe.id}`);
     domRecipe.style.display = "block";
   });
-  showWelcomeBanner();
+  // showWelcomeBanner();
 }
 
 // CREATE AND USE PANTRY
