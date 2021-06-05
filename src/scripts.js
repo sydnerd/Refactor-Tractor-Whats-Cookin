@@ -5,6 +5,7 @@ import './css/styles.scss';
 
 import User from './user';
 import Recipe from './recipe';
+import domUpdates from './dom-updates'
 
 let main = document.querySelector("main");
 let allRecipesBtn = document.querySelector("#showAllBtn");
@@ -20,7 +21,6 @@ let showPantryRecipes = document.querySelector("#showPantryRecipesBtn");
 let tagList = document.querySelector("#tagList");
 let userPantryInfo = [];
 let recipes = [];
-
 let cookbook = [];
 let pantry = [];
 let user;
@@ -45,7 +45,7 @@ function loadData() {
       fillPantry(data[0].ingredientsData)
       createCards(data[1].recipeData)
       findTags(data[1].recipeData)
-      generateUser(data[2].usersData)
+      domUpdates.generateUser(data[2].usersData)
       findPantryInfo(data[0].ingredientsData)
     })
 }
@@ -56,21 +56,22 @@ function fillCookbook(recipeData) {
 
 function fillPantry(ingredientData) {
   ingredientData.forEach(ingredient => pantry.push(ingredient))
-  console.log(pantry)
 }
+
+
 
 //CONTENT LOADING FUNCTIONS
-
-function generateUser(userData) {
-  user = new User(userData[Math.floor(Math.random() * userData.length)]);
-  let firstName = user.name.split(" ")[0];
-  let welcomeMsg = `
-    <div class="welcome-msg">
-      <h1>Welcome ${firstName}!</h1>
-    </div>`;
-  document.querySelector(".banner-image").insertAdjacentHTML("afterbegin",
-    welcomeMsg);
-}
+//Dom Updates - can we keep the instantiation of user?
+// function generateUser(userData) {
+//   user = new User(userData[Math.floor(Math.random() * userData.length)]);
+//   let firstName = user.name.split(" ")[0];
+//   let welcomeMsg = `
+//     <div class="welcome-msg">
+//       <h1>Welcome ${firstName}!</h1>
+//     </div>`;
+//   document.querySelector(".banner-image").insertAdjacentHTML("afterbegin",
+//     welcomeMsg);
+// }
 
 function createCards(recipeData) {
   recipeData.forEach(recipe => {
