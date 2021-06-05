@@ -35,7 +35,7 @@ h1 {
 }
 
 h2 {
-  color: $light-apple-green;
+  color: $med-apple-green;
   margin: 10px 0px 10px 0px;
 }
 
@@ -49,7 +49,7 @@ h3 {
 
 h4 {
   color: #359567;
-  background-color: #C4EB67;
+  background-color: $light-apple-green;
   border-radius: 3px;
   margin: 10px 0px 0px 0px;
   padding: 1px 4px 1px 4px;
@@ -67,7 +67,7 @@ header {
 }
 
 span {
-  color: #C4EB67;
+  color: $light-apple-green;
   font-weight: 400;
 }
 
@@ -79,7 +79,7 @@ span {
 
 .search-form {
   border-radius: 15px 15px 15px 15px;
-  border: 3px outset #C4EB67;
+  border: 3px outset $light-apple-green;
   box-shadow: 0px 0px 7px 0px #475d74;
   display: flex;
   flex-direction: row;
@@ -132,7 +132,7 @@ span {
 }
 
 .search-btn {
-  border-left: 3px outset #C4EB67;
+  border-left: 3px outset $light-apple-green;
   border-radius: 0px 15px 15px 0px;
   padding: 1%;
 }
@@ -156,7 +156,7 @@ span {
 }
 
 .nav-btn:hover {
-  color: #C4EB67;
+  color: $light-apple-green;
   font-size: 14px;
   text-shadow: 0px 2px 4px black;
   transition: .4s ease;
@@ -169,7 +169,7 @@ span {
 }
 
 .saved-ingredients-btn {
-  border-left: 3px solid #C4EB67;
+  border-left: 3px solid $light-apple-green;
 }
 
 .ing-pan-btn {
@@ -249,7 +249,7 @@ main {
 
 .recipe-card {
   background-color: $white;
-  border: 2px solid #C4EB67;
+  border: 2px solid $light-apple-green;
   border-radius: 7px;
   cursor: pointer;
   height: 270px;
@@ -271,7 +271,7 @@ main {
 }
 
 .recipe-card:hover h3 {
-  text-shadow: 0px 0px 4px #C4EB67;
+  text-shadow: 0px 0px 4px $light-apple-green;
   transition: .8s ease;
 }
 
@@ -342,7 +342,7 @@ main {
 }
 
 .filter-btn:hover {
-  background-color: $light-apple-green;
+  background-color: $med-apple-green;
 }
 
 
@@ -377,7 +377,7 @@ main {
 /* RECIPE INSTRUCTIONS */
 .recipe-instructions {
   background: $white;
-  border: 3px solid #C4EB67;
+  border: 3px solid $light-apple-green;
   border-radius: 10px;
   box-shadow: 1px 1px 115px black;
   display: none;
@@ -406,7 +406,7 @@ main {
 }
 
 #exit-recipe-btn:hover {
-  background: #C4EB67;
+  background: $light-apple-green;
   transition: .3s ease;
 }
 
