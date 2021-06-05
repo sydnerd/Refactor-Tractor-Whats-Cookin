@@ -82,21 +82,21 @@ span { // headers-banners
   width: 100%; // mixins
 }
 
-.search-input {
+.search-input { // search-input
   background-color: $mint-green;
-  background: -webkit-gradient( linear,left top, left bottom, color-stop(0, rgb(255, 255, 255)), color-stop(1, rgb(225,225,225)));
+  background: -webkit-gradient( linear,left top, left bottom, color-stop(0, rgb(255, 255, 255)), color-stop(1, rgb(225,225,225))); // mixins? variables?
   border-radius: 10px 0px 0px 10px; // mixins
   border: none; // mixins
   box-shadow: inset -3px -1px 20px 1px #5c7894; // mixins
   color: $dark-grey;
-  font-family: "Quicksand", sans-serif;
-  font-size: 42px;
-  height: 100%;
-  // outline: none;
+  font-family: "Quicksand", sans-serif; // typography
+  font-size: 42px; // typography
+  height: 100%; // mixins
+  // outline: none; // remove - this is an accessibility issue
   padding: 0% 2% 0% 0%; // mixins
   text-align: right;
-  transition: .8s ease;
-  width: 100%;
+  transition: .8s ease; // transitions
+  width: 100%; // mixins
 }
 
 .search-input:hover {
