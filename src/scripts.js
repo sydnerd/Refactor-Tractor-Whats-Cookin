@@ -2,6 +2,11 @@ import { fetchAllData } from './apiCalls';
 
 import './css/base.scss';
 // import './css/styles.scss';
+import './images/search.png';
+import './images/apple-logo-outline.png';
+import './images/apple-logo.png';
+import './images/cookbook.png';
+import './images/seasoning.png';
 
 import User from './user';
 import Recipe from './recipe';
