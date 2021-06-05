@@ -40,8 +40,8 @@ h3 { // headers-banners
   transition: .8s ease; // transitions
 }
 
-h4 {
-  color: #359567;
+h4 { // headers-banners
+  color: $dark-apple-green;
   background-color: $light-apple-green;
   border-radius: 3px;
   margin: 10px 0px 0px 0px;
@@ -296,7 +296,7 @@ main {
 }
 
 .text {
-  background: #359567;
+  background: $dark-apple-green;
   color: $white;
   font-weight: 700;
   font-size: 0px;
@@ -313,7 +313,7 @@ main {
 .show-pantry-recipes-btn,
 .show-all-btn,
 .filter-btn {
-  background-color: #359567;
+  background-color: $dark-apple-green;
   border: 0;
   border-radius: 3px;
   color: $white;
@@ -356,7 +356,7 @@ main {
 }
 
 .drop-menu h2 {
-  color: #359567;
+  color: $dark-apple-green;
   margin: 0px;
 }
 
@@ -387,9 +387,9 @@ main {
 
 #exit-recipe-btn {
   background: $white;
-  border: 2px double #359567;
+  border: 2px double $dark-apple-green;
   border-radius: 5px;
-  color: #359567;
+  color: $dark-apple-green;
   cursor: $point;
   font-size: 20px;
   font-weight: 700;
@@ -417,7 +417,7 @@ main {
 
 .recipe-instructions h4 {
   background: $white;
-  color: #359567;
+  color: $dark-apple-green;
 }
 
 .recipe-instructions p {
