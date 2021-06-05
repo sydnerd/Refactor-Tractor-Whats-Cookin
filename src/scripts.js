@@ -45,7 +45,7 @@ function loadData() {
       fillPantry(data[0].ingredientsData)
       createCards(data[1].recipeData)
       findTags(data[1].recipeData)
-      domUpdates.generateUser(data[2].usersData)
+      generateUser(data[2].usersData)
       findPantryInfo(data[0].ingredientsData)
     })
 }
@@ -62,16 +62,11 @@ function fillPantry(ingredientData) {
 
 //CONTENT LOADING FUNCTIONS
 //Dom Updates - can we keep the instantiation of user?
-// function generateUser(userData) {
-//   user = new User(userData[Math.floor(Math.random() * userData.length)]);
-//   let firstName = user.name.split(" ")[0];
-//   let welcomeMsg = `
-//     <div class="welcome-msg">
-//       <h1>Welcome ${firstName}!</h1>
-//     </div>`;
-//   document.querySelector(".banner-image").insertAdjacentHTML("afterbegin",
-//     welcomeMsg);
-// }
+function generateUser(userData) {
+  user = new User(userData[Math.floor(Math.random() * userData.length)]);
+  let firstName = user.name.split(" ")[0];
+  domUpdates.addWelcomeMessage(firstName);
+}
 
 function createCards(recipeData) {
   recipeData.forEach(recipe => {
