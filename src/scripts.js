@@ -93,20 +93,6 @@ function findTags(recipeData) {
   domUpdates.listTags(tags);
 }
 
-// function listTags(allTags) {
-//   allTags.forEach(tag => {
-//     let tagHtml = `<li><input type="checkbox" class="checked-tag" id="${tag}">
-//       <label for="${tag}">${capitalize(tag)}</label></li>`;
-//     tagList.insertAdjacentHTML("beforeend", tagHtml);
-//   });
-// }
-
-function capitalize(words) {
-  return words.split(" ").map(word => {
-    return word.charAt(0).toUpperCase() + word.slice(1);
-  }).join(" ");
-}
-
 function findCheckedBoxes() {
   let tagCheckboxes = document.querySelectorAll(".checked-tag");
   let checkboxInfo = Array.from(tagCheckboxes)
@@ -195,21 +181,22 @@ function openRecipeInfo(event) {
   let matchedRecipe = cookbook.find(recipe => recipe.id === Number(recipeId));
   let instantiatedRecipe = new Recipe(matchedRecipe)
   let matchedIngredients = generateIngredients(matchedRecipe)
-  generateRecipeTitle(matchedRecipe, matchedIngredients);
+  domUpdates.generateRecipeTitle(matchedRecipe, matchedIngredients);
   addRecipeImage(matchedRecipe);
   generateInstructions(matchedRecipe);
   generateCost(instantiatedRecipe);
   fullRecipeInfo.insertAdjacentHTML("beforebegin", "<section id='overlay'></div>");
 }
 
-function generateRecipeTitle(recipe, ingredients) {
-  let recipeTitle = `
-    <button id="exit-recipe-btn">X</button>
-    <h3 id="recipe-title">${recipe.name}</h3>
-    <h4>Ingredients</h4>
-    <p>${ingredients}</p>`
-  fullRecipeInfo.insertAdjacentHTML("beforeend", recipeTitle);
+function getIngredientName(id) {
+  let match = pantry.find(ingredient => id === ingredient.id)
+  if (match) {
+    return match.name
+  }
 }
+
+
+
 
 function addRecipeImage(recipe) {
   document.getElementById("recipe-title").style.backgroundImage = `url(${recipe.image})`;
@@ -219,16 +206,10 @@ function generateIngredients(recipe) {
   return recipe.ingredients.map(i => {
     const ingredient = getIngredientName(i.id);
     let ingredientAmount = parseFloat(i.quantity.amount.toFixed(2))
-    return `${capitalize(ingredient)} (${ingredientAmount} ${i.quantity.unit})`
+    return `${domUpdates.capitalize(ingredient)} (${ingredientAmount} ${i.quantity.unit})`
   }).join(", ");
 }
 
-function getIngredientName(id) {
-  let match = pantry.find(ingredient => id === ingredient.id)
-  if (match) {
-    return match.name
-  }
-}
 
 
 function generateInstructions(recipe) {

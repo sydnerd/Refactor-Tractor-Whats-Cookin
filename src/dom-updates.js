@@ -34,7 +34,17 @@ let domUpdates = {
     return words.split(" ").map(word => {
       return word.charAt(0).toUpperCase() + word.slice(1);
     }).join(" ");
-  }
+  },
+
+  generateRecipeTitle(recipe, ingredients) {
+    let recipeTitle = `
+      <button id="exit-recipe-btn">X</button>
+      <h3 id="recipe-title">${recipe.name}</h3>
+      <h4>Ingredients</h4>
+      <p>${ingredients}</p>`
+    document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", recipeTitle);
+  },
+
 }
 
 export default domUpdates;
