@@ -4,37 +4,37 @@
 
 body {
   background-color: $dark-grey;
-  display: grid;
-  font-family: "Quicksand", sans-serif;
-  grid-template-columns: 1fr 5fr;
-  grid-template-areas:
+  display: grid; // grids
+  font-family: "Quicksand", sans-serif; // typography
+  grid-template-columns: 1fr 5fr; // grids
+  grid-template-areas: // grids
     "header header"
     "image image"
     "aside main";
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: auto;
+  height: 100vh; // mixins
+  margin: 0; // mixins
+  padding: 0; // mixins
+  -webkit-font-smoothing: auto; // typography; this only works on macOS; 📌 use font-smooth: auto and see if that works as well
 }
 
 h1 {
   align-self: center;
   color: $white;
-  font-family: "Sulphur Point", sans-serif;
-  font-size: 50px;
-  margin: 0%;
-  padding: 0.5% 0.7% 0%;
-  width: 70%;
+  font-family: "Sulphur Point", sans-serif; // typography
+  font-size: 50px; // typography
+  margin: 0%; // mixins
+  padding: 0.5% 0.7% 0%; // mixins
+  width: 70%; // mixins
 }
 
 h2 {
   color: $med-apple-green;
-  margin: 10px 0px 10px 0px;
+  margin: 10px 0px 10px 0px; // mixins
 }
 
 h3 {
   color: #359567;
-  cursor: pointer;
+  cursor: $point;
   height: 17%;
   margin: 5px 5px 10px 0px;
   transition: .8s ease;
@@ -134,7 +134,7 @@ span {
   align-items: center;
   background: $dark-grey no-repeat;
   border: none;
-  cursor: pointer;
+  cursor: $point;
   display: flex;
   flex-direction: column;
   font-size: 0px;
@@ -244,7 +244,7 @@ main {
   background-color: $white;
   border: 2px solid $light-apple-green;
   border-radius: 7px;
-  cursor: pointer;
+  cursor: $point;
   height: 270px;
   margin: 20px;
   padding: 15px;
@@ -269,7 +269,7 @@ main {
 }
 
 .card-apple-icon {
-  cursor: pointer;
+  cursor: $point;
   float: right;
   height: 50px;
   padding-bottom: 10px;
@@ -281,7 +281,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 7px;
-  cursor: pointer;
+  cursor: $point;
   height: 130px;
   transition: .8s ease;
   width: 100%;
@@ -317,7 +317,7 @@ main {
   border: 0;
   border-radius: 3px;
   color: $white;
-  cursor: pointer;
+  cursor: $point;
   font-family: "Quicksand", sans-serif;
   font-size: 12pt;
   font-weight: bold;
@@ -390,7 +390,7 @@ main {
   border: 2px double #359567;
   border-radius: 5px;
   color: #359567;
-  cursor: pointer;
+  cursor: $point;
   font-size: 20px;
   font-weight: 700;
   margin: -4% -3% 2% -1%;
