@@ -62,6 +62,11 @@ let domUpdates = {
     document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", "<h4>Instructions</h4>");
     document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", `<ol>${instructionsList}</ol>`);
   },
+
+  generateCost(recipe, pantry) {
+    let recipeCost = recipe.calculateIngredientsCost(pantry);
+    document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", `<h4>Recipe Cost: $${recipeCost}</h4>`)
+  }
 }
 
 export default domUpdates;
