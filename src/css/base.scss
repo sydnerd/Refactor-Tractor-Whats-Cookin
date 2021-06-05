@@ -26,7 +26,7 @@ body {
 
 h1 {
   align-self: center;
-  color: white;
+  color: $white;
   font-family: "Sulphur Point", sans-serif;
   font-size: 50px;
   margin: 0%;
@@ -35,7 +35,7 @@ h1 {
 }
 
 h2 {
-  color: #84C8A4;
+  color: $apple-green;
   margin: 10px 0px 10px 0px;
 }
 
@@ -107,12 +107,12 @@ span {
 }
 
 .search-input:hover {
-  box-shadow: inset 0px 0px 0px 0px white;
+  box-shadow: inset 0px 0px 0px 0px $white;
   transition: .8s ease;
 }
 
 .search-input:focus {
-  box-shadow: inset 0px 0px 0px 0px white;
+  box-shadow: inset 0px 0px 0px 0px $white;
 }
 
 .search-input::placeholder {
@@ -195,7 +195,7 @@ span {
 
 .my-recipes-banner h1,
 .welcome-msg h1 {
-  color: white;
+  color: $white;
   width: 100%;
 }
 
@@ -211,7 +211,7 @@ span {
 
 /* FILTER SIDEBAR */
 aside {
-  background-color: white;
+  background-color: $white;
   display: flex;
   justify-content: center;
   height: auto;
@@ -219,7 +219,7 @@ aside {
 }
 
 .wrap {
-  background-color: white;
+  background-color: $white;
   height: 100vh;
   padding: 10px;
   position: relative;
@@ -248,7 +248,7 @@ main {
 }
 
 .recipe-card {
-  background-color: white;
+  background-color: $white;
   border: 2px solid #C4EB67;
   border-radius: 7px;
   cursor: pointer;
@@ -304,7 +304,7 @@ main {
 
 .text {
   background: #359567;
-  color: white;
+  color: $white;
   font-weight: 700;
   font-size: 0px;
   opacity: 0%;
@@ -323,7 +323,7 @@ main {
   background-color: #359567;
   border: 0;
   border-radius: 3px;
-  color: white;
+  color: $white;
   cursor: pointer;
   font-family: "Quicksand", sans-serif;
   font-size: 12pt;
@@ -342,7 +342,7 @@ main {
 }
 
 .filter-btn:hover {
-  background-color: #84C8A4;
+  background-color: $apple-green;
 }
 
 
@@ -376,7 +376,7 @@ main {
 
 /* RECIPE INSTRUCTIONS */
 .recipe-instructions {
-  background: white;
+  background: $white;
   border: 3px solid #C4EB67;
   border-radius: 10px;
   box-shadow: 1px 1px 115px black;
@@ -393,7 +393,7 @@ main {
 }
 
 #exit-recipe-btn {
-  background: white;
+  background: $white;
   border: 2px double #359567;
   border-radius: 5px;
   color: #359567;
@@ -414,7 +414,7 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 7px 7px 0px 0px;
-  color: white;
+  color: $white;
   font-size: 30px;
   margin: 0;
   padding: 5%;
@@ -423,7 +423,7 @@ main {
 }
 
 .recipe-instructions h4 {
-  background: white;
+  background: $white;
   color: #359567;
 }
 
