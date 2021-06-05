@@ -8,9 +8,9 @@ class Recipe {
   }
 
 
-  calculateIngredientsCost(ingredients) {
+  calculateIngredientsCost(ingredientDataset) {
     const totalCost = this.ingredients.reduce((acc, currentIngredient) => {
-      let foundIngredient = ingredients.find(ingredient => ingredient.id === currentIngredient.id);
+      let foundIngredient = ingredientDataset.find(ingredient => ingredient.id === currentIngredient.id);
       acc += currentIngredient.quantity.amount * foundIngredient.estimatedCostInCents;
       return acc;
     }, 0);
