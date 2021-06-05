@@ -1,7 +1,7 @@
 import { fetchAllData } from './apiCalls';
 
 import './css/base.scss';
-import './css/styles.scss';
+// import './css/styles.scss';
 
 import User from './user';
 import Recipe from './recipe';
