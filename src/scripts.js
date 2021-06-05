@@ -214,11 +214,12 @@ function openRecipeInfo(event) {
   fullRecipeInfo.style.display = "inline";
   let recipeId = event.path.find(e => e.id).id;
   let matchedRecipe = cookbook.find(recipe => recipe.id === Number(recipeId));
+  let instantiatedRecipe = new Recipe(matchedRecipe)
   let matchedIngredients = generateIngredients(matchedRecipe)
   generateRecipeTitle(matchedRecipe, matchedIngredients);
   addRecipeImage(matchedRecipe);
   generateInstructions(matchedRecipe);
-  generateCost(matchedRecipe);
+  generateCost(instantiatedRecipe);
   fullRecipeInfo.insertAdjacentHTML("beforebegin", "<section id='overlay'></div>");
 }
 
@@ -265,10 +266,8 @@ function generateInstructions(recipe) {
 }
 
 function generateCost(recipe) {
-  console.log("test2", recipe)
   let recipeCost = recipe.calculateIngredientsCost(pantry);
-  console.log(recipeCost)
-  fullRecipeInfo.insertAdjacentHTML("beforeend", `<h4>${recipeCost}</h4>`)
+  fullRecipeInfo.insertAdjacentHTML("beforeend", `<h4>Recipe Cost: $${recipeCost}</h4>`)
 }
 
 function exitRecipe() {
