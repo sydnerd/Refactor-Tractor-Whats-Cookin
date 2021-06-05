@@ -205,7 +205,7 @@ function showSavedRecipes() {
     let domRecipe = document.getElementById(`${recipe.id}`);
     domRecipe.style.display = "none";
   });
-  // showMyRecipesBanner();
+  showMyRecipesBanner();
 }
 
 // CREATE RECIPE INSTRUCTIONS
@@ -271,11 +271,10 @@ function exitRecipe() {
 
 // TOGGLE DISPLAYS
 
-// DO WE NEED THIS? I dont seem to see a change without it! ESpitz
-// function showMyRecipesBanner() {
-//   document.querySelector(".welcome-msg").style.display = "none";
-//   document.querySelector(".my-recipes-banner").style.display = "block";
-// }
+function showMyRecipesBanner() {
+  document.querySelector(".welcome-msg").style.display = "none";
+  document.querySelector(".my-recipes-banner").style.display = "block";
+}
 
 function showWelcomeBanner() {
   document.querySelector(".welcome-msg").style.display = "flex";
@@ -324,7 +323,7 @@ function showAllRecipes() {
     let domRecipe = document.getElementById(`${recipe.id}`);
     domRecipe.style.display = "block";
   });
-  // showWelcomeBanner();
+  showWelcomeBanner();
 }
 
 // CREATE AND USE PANTRY
