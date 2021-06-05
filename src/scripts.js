@@ -182,7 +182,7 @@ function openRecipeInfo(event) {
   let instantiatedRecipe = new Recipe(matchedRecipe)
   let matchedIngredients = generateIngredients(matchedRecipe)
   domUpdates.generateRecipeTitle(matchedRecipe, matchedIngredients);
-  addRecipeImage(matchedRecipe);
+  domUpdates.addRecipeImage(matchedRecipe);
   generateInstructions(matchedRecipe);
   generateCost(instantiatedRecipe);
   fullRecipeInfo.insertAdjacentHTML("beforebegin", "<section id='overlay'></div>");
@@ -195,13 +195,6 @@ function getIngredientName(id) {
   }
 }
 
-
-
-
-function addRecipeImage(recipe) {
-  document.getElementById("recipe-title").style.backgroundImage = `url(${recipe.image})`;
-}
-
 function generateIngredients(recipe) {
   return recipe.ingredients.map(i => {
     const ingredient = getIngredientName(i.id);
@@ -209,8 +202,6 @@ function generateIngredients(recipe) {
     return `${domUpdates.capitalize(ingredient)} (${ingredientAmount} ${i.quantity.unit})`
   }).join(", ");
 }
-
-
 
 function generateInstructions(recipe) {
   let instructionsList = "";

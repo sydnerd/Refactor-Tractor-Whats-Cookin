@@ -7,6 +7,7 @@ let domUpdates = {
     document.querySelector(".banner-image").insertAdjacentHTML("afterbegin",
       welcomeMsg);
   },
+
   addToDom(recipeInfo, shortRecipeName) {
     let cardHtml = `
       <div class="recipe-card" id=${recipeInfo.id}>
@@ -22,6 +23,7 @@ let domUpdates = {
       </div>`
     document.querySelector("main").insertAdjacentHTML("beforeend", cardHtml);
   },
+
   listTags(allTags) {
     allTags.forEach(tag => {
       let tagHtml = `<li><input type="checkbox" class="checked-tag" id="${tag}">
@@ -44,7 +46,10 @@ let domUpdates = {
       <p>${ingredients}</p>`
     document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", recipeTitle);
   },
-
+  
+  addRecipeImage(recipe) {
+    document.getElementById("recipe-title").style.backgroundImage = `url(${recipe.image})`;
+  }
 }
 
 export default domUpdates;
