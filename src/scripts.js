@@ -183,7 +183,7 @@ function openRecipeInfo(event) {
   let matchedIngredients = generateIngredients(matchedRecipe)
   domUpdates.generateRecipeTitle(matchedRecipe, matchedIngredients);
   domUpdates.addRecipeImage(matchedRecipe);
-  generateInstructions(matchedRecipe);
+  domUpdates.generateInstructions(matchedRecipe);
   generateCost(instantiatedRecipe);
   fullRecipeInfo.insertAdjacentHTML("beforebegin", "<section id='overlay'></div>");
 }
@@ -203,17 +203,17 @@ function generateIngredients(recipe) {
   }).join(", ");
 }
 
-function generateInstructions(recipe) {
-  let instructionsList = "";
-  let instructions = recipe.instructions.map(i => {
-    return i.instruction
-  });
-  instructions.forEach(i => {
-    instructionsList += `<li>${i}</li>`
-  });
-  fullRecipeInfo.insertAdjacentHTML("beforeend", "<h4>Instructions</h4>");
-  fullRecipeInfo.insertAdjacentHTML("beforeend", `<ol>${instructionsList}</ol>`);
-}
+// function generateInstructions(recipe) {
+//   let instructionsList = "";
+//   let instructions = recipe.instructions.map(i => {
+//     return i.instruction
+//   });
+//   instructions.forEach(i => {
+//     instructionsList += `<li>${i}</li>`
+//   });
+//   fullRecipeInfo.insertAdjacentHTML("beforeend", "<h4>Instructions</h4>");
+//   fullRecipeInfo.insertAdjacentHTML("beforeend", `<ol>${instructionsList}</ol>`);
+// }
 
 function generateCost(recipe) {
   let recipeCost = recipe.calculateIngredientsCost(pantry);

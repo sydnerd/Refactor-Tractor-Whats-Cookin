@@ -46,10 +46,22 @@ let domUpdates = {
       <p>${ingredients}</p>`
     document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", recipeTitle);
   },
-  
+
   addRecipeImage(recipe) {
     document.getElementById("recipe-title").style.backgroundImage = `url(${recipe.image})`;
-  }
+  },
+
+  generateInstructions(recipe) {
+    let instructionsList = "";
+    let instructions = recipe.instructions.map(i => {
+      return i.instruction
+    });
+    instructions.forEach(i => {
+      instructionsList += `<li>${i}</li>`
+    });
+    document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", "<h4>Instructions</h4>");
+    document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", `<ol>${instructionsList}</ol>`);
+  },
 }
 
 export default domUpdates;
