@@ -92,7 +92,6 @@ span { // headers-banners
   font-family: "Quicksand", sans-serif; // typography
   font-size: 42px; // typography
   height: 100%; // mixins
-  // outline: none; // remove - this is an accessibility issue
   padding: 0% 2% 0% 0%; // mixins
   text-align: right;
   transition: .8s ease; // transitions
@@ -141,7 +140,6 @@ span { // headers-banners
   font-weight: 700; // typography
   justify-content: center; // flex
   margin: 0%; // mixins
-  // outline: none; // style defaults to none; accessibility issue!! removes the default focus style
   overflow: hidden;
   text-align: center;
   transition: .4s ease;
