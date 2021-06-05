@@ -99,40 +99,40 @@ span { // headers-banners
 }
 
 .search-input:hover {
-  box-shadow: inset 0px 0px 0px 0px $white;
+  box-shadow: inset 0px 0px 0px 0px $white; // mixins
   transition: .8s ease;
 }
 
 .search-input:focus {
-  box-shadow: inset 0px 0px 0px 0px $white;
+  box-shadow: inset 0px 0px 0px 0px $white; // mixins
 }
 
 .search-input::placeholder {
   color: $dark-grey;
-  font-size: 20px;
+  font-size: 20px; // typography
   text-align: right;
-  text-shadow: none;
+  text-shadow: none; // typography
 }
 
 .search-input:focus::placeholder {
-  font-size: 0px;
+  font-size: 0px; // typography
   transition: .8s ease;
 }
 
 .search-label {
-  display: none;
+  display: none; // ♿️ this might be an accessibility issue?
 }
 
 .search-btn {
-  border-left: 3px outset $light-apple-green;
-  border-radius: 0px 15px 15px 0px;
+  border-left: 3px outset $light-apple-green; // mixins
+  border-radius: 0px 15px 15px 0px; // mixins
   padding: 1%;
 }
 
 .nav-btn { // buttons or nav?
-  align-items: center;
+  align-items: center; // flex
   background: $dark-grey no-repeat;
-  border: none;
+  border: none; 
   cursor: $point;
   display: flex; // flex
   flex-direction: column; // flex
