@@ -231,11 +231,11 @@ li { // sidebar
 /* RECIPE CARD SECTION */
 main {
   grid-area: main; // grids
-  display: flex;
-  justify-content: center;
-  align-content: flex-start;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: flex; // flex
+  justify-content: center; // flex
+  align-content: flex-start; // flex
+  flex-direction: row; // flex
+  flex-wrap: wrap; // flex
 }
 
 .recipe-card {
@@ -286,11 +286,11 @@ main {
 }
 
 .card-photo-container {
-  align-items: center;
-  display: flex;
+  align-items: center; // flex
+  display: flex; // flex
   height: 130px;
-  justify-content: center;
-  position: relative;
+  justify-content: center; // flex
+  position: relative; // flex
 }
 
 .text {
