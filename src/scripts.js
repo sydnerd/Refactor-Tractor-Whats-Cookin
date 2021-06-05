@@ -41,9 +41,9 @@ searchForm.addEventListener("submit", pressEnterSearch);
 function loadData() {
   fetchAllData()
     .then(function(data) {
-      createCards(data[1].recipeData)
       fillCookbook(data[1].recipeData)
       fillPantry(data[0].ingredientsData)
+      createCards(data[1].recipeData)
       findTags(data[1].recipeData)
       generateUser(data[2].usersData)
       findPantryInfo(data[0].ingredientsData)
@@ -56,6 +56,7 @@ function fillCookbook(recipeData) {
 
 function fillPantry(ingredientData) {
   ingredientData.forEach(ingredient => pantry.push(ingredient))
+  console.log(pantry)
 }
 
 //CONTENT LOADING FUNCTIONS
@@ -213,10 +214,12 @@ function openRecipeInfo(event) {
   fullRecipeInfo.style.display = "inline";
   let recipeId = event.path.find(e => e.id).id;
   let matchedRecipe = cookbook.find(recipe => recipe.id === Number(recipeId));
+  let instantiatedRecipe = new Recipe(matchedRecipe)
   let matchedIngredients = generateIngredients(matchedRecipe)
   generateRecipeTitle(matchedRecipe, matchedIngredients);
   addRecipeImage(matchedRecipe);
   generateInstructions(matchedRecipe);
+  generateCost(instantiatedRecipe);
   fullRecipeInfo.insertAdjacentHTML("beforebegin", "<section id='overlay'></div>");
 }
 
@@ -260,6 +263,11 @@ function generateInstructions(recipe) {
   });
   fullRecipeInfo.insertAdjacentHTML("beforeend", "<h4>Instructions</h4>");
   fullRecipeInfo.insertAdjacentHTML("beforeend", `<ol>${instructionsList}</ol>`);
+}
+
+function generateCost(recipe) {
+  let recipeCost = recipe.calculateIngredientsCost(pantry);
+  fullRecipeInfo.insertAdjacentHTML("beforeend", `<h4>Recipe Cost: $${recipeCost}</h4>`)
 }
 
 function exitRecipe() {

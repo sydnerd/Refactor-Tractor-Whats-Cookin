@@ -7,6 +7,8 @@ import './css/styles.scss';
 import './images/search.png';
 import './images/apple-logo-outline.png';
 import './images/apple-logo.png';
+import './images/cookbook.png';
+import './images/seasoning.png';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 
