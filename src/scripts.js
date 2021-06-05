@@ -58,8 +58,6 @@ function fillPantry(ingredientData) {
   ingredientData.forEach(ingredient => pantry.push(ingredient))
 }
 
-
-
 //CONTENT LOADING FUNCTIONS
 //Dom Updates - can we keep the instantiation of user?
 function generateUser(userData) {
