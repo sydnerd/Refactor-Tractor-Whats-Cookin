@@ -135,13 +135,13 @@ span {
   background: $dark-grey no-repeat;
   border: none;
   cursor: $point;
-  display: flex;
-  flex-direction: column;
-  font-size: 0px;
-  font-weight: 700;
-  justify-content: center;
-  margin: 0%;
-  outline: none;
+  display: flex; // flex
+  flex-direction: column; // flex
+  font-size: 0px; // typography
+  font-weight: 700; // typography
+  justify-content: center; // flex
+  margin: 0%; // mixins
+  // outline: none; // style defaults to none; accessibility issue!! removes the default focus style
   overflow: hidden;
   text-align: center;
   transition: .4s ease;
