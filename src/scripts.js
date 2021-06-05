@@ -5,11 +5,12 @@ import './css/styles.scss';
 
 import User from './user';
 import Recipe from './recipe';
+import domUpdates from './dom-updates'
 
-let main = document.querySelector("main");
 let allRecipesBtn = document.querySelector("#showAllBtn");
 let filterBtn = document.querySelector("#filterBtn");
 let fullRecipeInfo = document.querySelector("#recipeInstructions");
+let main = document.querySelector("main");
 let menuOpen = false;
 let pantryBtn = document.querySelector("#myPantryBtn");
 let savedRecipesBtn = document.querySelector("#savedRecipesBtn");
@@ -20,10 +21,10 @@ let showPantryRecipes = document.querySelector("#showPantryRecipesBtn");
 let tagList = document.querySelector("#tagList");
 let userPantryInfo = [];
 let recipes = [];
-
 let cookbook = [];
 let pantry = [];
 let user;
+
 
 window.addEventListener("load", loadData)
 window.addEventListener("load", findTags);
@@ -56,20 +57,14 @@ function fillCookbook(recipeData) {
 
 function fillPantry(ingredientData) {
   ingredientData.forEach(ingredient => pantry.push(ingredient))
-  console.log(pantry)
 }
 
 //CONTENT LOADING FUNCTIONS
-
+//Dom Updates - can we keep the instantiation of user?
 function generateUser(userData) {
   user = new User(userData[Math.floor(Math.random() * userData.length)]);
   let firstName = user.name.split(" ")[0];
-  let welcomeMsg = `
-    <div class="welcome-msg">
-      <h1>Welcome ${firstName}!</h1>
-    </div>`;
-  document.querySelector(".banner-image").insertAdjacentHTML("afterbegin",
-    welcomeMsg);
+  domUpdates.addWelcomeMessage(firstName);
 }
 
 function createCards(recipeData) {
@@ -80,24 +75,8 @@ function createCards(recipeData) {
     if (recipeInfo.name.length > 40) {
       shortRecipeName = recipeInfo.name.substring(0, 40) + "...";
     }
-    addToDom(recipeInfo, shortRecipeName)
+    domUpdates.addToDom(recipeInfo, shortRecipeName)
   });
-}
-
-function addToDom(recipeInfo, shortRecipeName) {
-  let cardHtml = `
-    <div class="recipe-card" id=${recipeInfo.id}>
-      <h3 maxlength="40">${shortRecipeName}</h3>
-      <div class="card-photo-container">
-        <img src=${recipeInfo.image} class="card-photo-preview" alt="${recipeInfo.name} recipe" title="${recipeInfo.name} recipe">
-        <div class="text">
-          <div>Click for Instructions</div>
-        </div>
-      </div>
-      <h4>${recipeInfo.tags[0]}</h4>
-      <img src="../images/apple-logo-outline.png" alt="unfilled apple icon" class="card-apple-icon">
-    </div>`
-  main.insertAdjacentHTML("beforeend", cardHtml);
 }
 
 // FILTER BY RECIPE TAGS
@@ -111,21 +90,7 @@ function findTags(recipeData) {
     });
   });
   tags.sort();
-  listTags(tags);
-}
-
-function listTags(allTags) {
-  allTags.forEach(tag => {
-    let tagHtml = `<li><input type="checkbox" class="checked-tag" id="${tag}">
-      <label for="${tag}">${capitalize(tag)}</label></li>`;
-    tagList.insertAdjacentHTML("beforeend", tagHtml);
-  });
-}
-
-function capitalize(words) {
-  return words.split(" ").map(word => {
-    return word.charAt(0).toUpperCase() + word.slice(1);
-  }).join(" ");
+  domUpdates.listTags(tags);
 }
 
 function findCheckedBoxes() {
@@ -216,33 +181,11 @@ function openRecipeInfo(event) {
   let matchedRecipe = cookbook.find(recipe => recipe.id === Number(recipeId));
   let instantiatedRecipe = new Recipe(matchedRecipe)
   let matchedIngredients = generateIngredients(matchedRecipe)
-  generateRecipeTitle(matchedRecipe, matchedIngredients);
+  domUpdates.generateRecipeTitle(matchedRecipe, matchedIngredients);
   addRecipeImage(matchedRecipe);
   generateInstructions(matchedRecipe);
   generateCost(instantiatedRecipe);
   fullRecipeInfo.insertAdjacentHTML("beforebegin", "<section id='overlay'></div>");
-}
-
-function generateRecipeTitle(recipe, ingredients) {
-  let recipeTitle = `
-    <button id="exit-recipe-btn">X</button>
-    <h3 id="recipe-title">${recipe.name}</h3>
-    <h4>Ingredients</h4>
-    <p>${ingredients}</p>`
-  fullRecipeInfo.insertAdjacentHTML("beforeend", recipeTitle);
-}
-
-function addRecipeImage(recipe) {
-  document.getElementById("recipe-title").style.backgroundImage = `url(${recipe.image})`;
-}
-
-
-function generateIngredients(recipe) {
-  return recipe.ingredients.map(i => {
-    const ingredient = getIngredientName(i.id);
-    let ingredientAmount = parseFloat(i.quantity.amount.toFixed(2))
-    return `${capitalize(ingredient)} (${ingredientAmount} ${i.quantity.unit})`
-  }).join(", ");
 }
 
 function getIngredientName(id) {
@@ -251,6 +194,22 @@ function getIngredientName(id) {
     return match.name
   }
 }
+
+
+
+
+function addRecipeImage(recipe) {
+  document.getElementById("recipe-title").style.backgroundImage = `url(${recipe.image})`;
+}
+
+function generateIngredients(recipe) {
+  return recipe.ingredients.map(i => {
+    const ingredient = getIngredientName(i.id);
+    let ingredientAmount = parseFloat(i.quantity.amount.toFixed(2))
+    return `${domUpdates.capitalize(ingredient)} (${ingredientAmount} ${i.quantity.unit})`
+  }).join(", ");
+}
+
 
 
 function generateInstructions(recipe) {
