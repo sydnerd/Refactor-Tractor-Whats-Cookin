@@ -12,14 +12,14 @@ let fullRecipeInfo = document.querySelector(".recipe-instructions");
 let main = document.querySelector("main");
 let menuOpen = false;
 let pantryBtn = document.querySelector(".my-pantry-btn");
-let pantryInfo = [];
-let recipes = [];
 let savedRecipesBtn = document.querySelector(".saved-recipes-btn");
 let searchBtn = document.querySelector(".search-btn");
 let searchForm = document.querySelector("#search");
 let searchInput = document.querySelector("#search-input");
 let showPantryRecipes = document.querySelector(".show-pantry-recipes-btn");
 let tagList = document.querySelector(".tag-list");
+let userPantryInfo = [];
+let recipes = [];
 
 let cookbook = [];
 let pantry = [];
@@ -288,7 +288,7 @@ function pressEnterSearch(event) {
 
 function searchRecipes() {
   showAllRecipes();
-  let searchedRecipes = recipeData.filter(recipe => {
+  let searchedRecipes = cookbook.filter(recipe => {
     return recipe.name.toLowerCase().includes(searchInput.value.toLowerCase());
   });
   filterNonSearched(createRecipeObject(searchedRecipes));
@@ -326,12 +326,12 @@ function showAllRecipes() {
 }
 
 // CREATE AND USE PANTRY
-function findPantryInfo(ingredientData) {
+function findPantryInfo(ingredientsData) {
   user.pantry.forEach(item => {
-    let itemInfo = ingredientData.find(ingredient => {
+    let itemInfo = ingredientsData.find(ingredient => {
       return ingredient.id === item.ingredient;
     });
-    let originalIngredient = pantryInfo.find(ingredient => {
+    let originalIngredient = userPantryInfo.find(ingredient => {
       if (itemInfo) {
         return ingredient.name === itemInfo.name;
       }
@@ -339,14 +339,14 @@ function findPantryInfo(ingredientData) {
     if (itemInfo && originalIngredient) {
       originalIngredient.amount = item.amount;
     } else if (itemInfo) {
-      pantryInfo.push({name: itemInfo.name, count: item.amount});
+      userPantryInfo.push({name: itemInfo.name, count: item.amount});
     }
   });
-  displayPantryInfo(pantryInfo.sort((a, b) => a.name.localeCompare(b.name)));
+  displayPantryInfo(userPantryInfo.sort((a, b) => a.name.localeCompare(b.name)));
 }
 
-function displayPantryInfo(pantry) {
-  pantry.forEach(ingredient => {
+function displayPantryInfo(userPantryInfo) {
+  userPantryInfo.forEach(ingredient => {
     let ingredientHtml = `<li><input type="checkbox" class="pantry-checkbox" id="${ingredient.name}">
       <label for="${ingredient.name}">${ingredient.name}, ${ingredient.count}</label></li>`;
     document.querySelector(".pantry-list").insertAdjacentHTML("beforeend",
