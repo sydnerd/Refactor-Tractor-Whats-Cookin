@@ -90,7 +90,7 @@ span {
 }
 
 .search-input {
-  background-color: #b6dcca;
+  background-color: $mint-green;
   background: -webkit-gradient( linear,left top, left bottom, color-stop(0, rgb(255, 255, 255)), color-stop(1, rgb(225,225,225)));
   border-radius: 10px 0px 0px 10px;
   border: none;
@@ -349,7 +349,7 @@ main {
 /* PANTRY LIST */
 .drop-menu {
   align-items: center;
-  background-color: #DAE4EE;
+  background-color: $light-grey;
   display: none;
   height: 600px;
   margin-left: 81%;
