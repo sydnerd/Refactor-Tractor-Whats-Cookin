@@ -1,8 +1,6 @@
 import { fetchAllData } from './apiCalls';
-
 import './css/base.scss';
 import './css/styles.scss';
-
 import User from './user';
 import Recipe from './recipe';
 import domUpdates from './dom-updates'
@@ -11,7 +9,6 @@ let allRecipesBtn = document.querySelector("#showAllBtn");
 let filterBtn = document.querySelector("#filterBtn");
 let fullRecipeInfo = document.querySelector("#recipeInstructions");
 let main = document.querySelector("main");
-let menuOpen = false;
 let pantryBtn = document.querySelector("#myPantryBtn");
 let savedRecipesBtn = document.querySelector("#savedRecipesBtn");
 let searchBtn = document.querySelector("#searchBtn");
@@ -25,13 +22,12 @@ let cookbook = [];
 let pantry = [];
 let user;
 
-
 window.addEventListener("load", loadData)
 window.addEventListener("load", findTags);
 allRecipesBtn.addEventListener("click", showAllRecipes);
 filterBtn.addEventListener("click", findCheckedBoxes);
 main.addEventListener("click", addToMyRecipes);
-pantryBtn.addEventListener("click", toggleMenu);
+pantryBtn.addEventListener("click", domUpdates.toggleMenu);
 savedRecipesBtn.addEventListener("click", showSavedRecipes);
 searchBtn.addEventListener("click", searchRecipes);
 showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
@@ -60,7 +56,6 @@ function fillPantry(ingredientData) {
 }
 
 //CONTENT LOADING FUNCTIONS
-//Dom Updates - can we keep the instantiation of user?
 function generateUser(userData) {
   user = new User(userData[Math.floor(Math.random() * userData.length)]);
   let firstName = user.name.split(" ")[0];
@@ -146,7 +141,7 @@ function addToMyRecipes(event) {
       user.removeRecipe(cardId);
     }
   } else if (event.target.id === "exit-recipe-btn") {
-    exitRecipe();
+    domUpdates.exitRecipe();
   } else if (isDescendant(event.target.closest(".recipe-card"), event.target)) {
     openRecipeInfo(event);
   }
@@ -171,7 +166,7 @@ function showSavedRecipes() {
     let domRecipe = document.getElementById(`${recipe.id}`);
     domRecipe.style.display = "none";
   });
-  showMyRecipesBanner();
+  domUpdates.showMyRecipesBanner();
 }
 
 // CREATE RECIPE INSTRUCTIONS
@@ -182,9 +177,9 @@ function openRecipeInfo(event) {
   let instantiatedRecipe = new Recipe(matchedRecipe)
   let matchedIngredients = generateIngredients(matchedRecipe)
   domUpdates.generateRecipeTitle(matchedRecipe, matchedIngredients);
-  addRecipeImage(matchedRecipe);
-  generateInstructions(matchedRecipe);
-  generateCost(instantiatedRecipe);
+  domUpdates.addRecipeImage(matchedRecipe);
+  domUpdates.generateInstructions(matchedRecipe);
+  domUpdates.generateCost(instantiatedRecipe, pantry);
   fullRecipeInfo.insertAdjacentHTML("beforebegin", "<section id='overlay'></div>");
 }
 
@@ -195,57 +190,12 @@ function getIngredientName(id) {
   }
 }
 
-
-
-
-function addRecipeImage(recipe) {
-  document.getElementById("recipe-title").style.backgroundImage = `url(${recipe.image})`;
-}
-
 function generateIngredients(recipe) {
   return recipe.ingredients.map(i => {
     const ingredient = getIngredientName(i.id);
     let ingredientAmount = parseFloat(i.quantity.amount.toFixed(2))
     return `${domUpdates.capitalize(ingredient)} (${ingredientAmount} ${i.quantity.unit})`
   }).join(", ");
-}
-
-
-
-function generateInstructions(recipe) {
-  let instructionsList = "";
-  let instructions = recipe.instructions.map(i => {
-    return i.instruction
-  });
-  instructions.forEach(i => {
-    instructionsList += `<li>${i}</li>`
-  });
-  fullRecipeInfo.insertAdjacentHTML("beforeend", "<h4>Instructions</h4>");
-  fullRecipeInfo.insertAdjacentHTML("beforeend", `<ol>${instructionsList}</ol>`);
-}
-
-function generateCost(recipe) {
-  let recipeCost = recipe.calculateIngredientsCost(pantry);
-  fullRecipeInfo.insertAdjacentHTML("beforeend", `<h4>Recipe Cost: $${recipeCost}</h4>`)
-}
-
-function exitRecipe() {
-  while (fullRecipeInfo.firstChild &&
-    fullRecipeInfo.removeChild(fullRecipeInfo.firstChild));
-  fullRecipeInfo.style.display = "none";
-  document.getElementById("overlay").remove();
-}
-
-// TOGGLE DISPLAYS
-
-function showMyRecipesBanner() {
-  document.querySelector(".welcome-msg").style.display = "none";
-  document.querySelector(".my-recipes-banner").style.display = "block";
-}
-
-function showWelcomeBanner() {
-  document.querySelector(".welcome-msg").style.display = "flex";
-  document.querySelector(".my-recipes-banner").style.display = "none";
 }
 
 // SEARCH RECIPES
@@ -275,22 +225,12 @@ function createRecipeObject(recipes) {
   return recipes
 }
 
-function toggleMenu() {
-  var menuDropdown = document.querySelector(".drop-menu");
-  menuOpen = !menuOpen;
-  if (menuOpen) {
-    menuDropdown.style.display = "block";
-  } else {
-    menuDropdown.style.display = "none";
-  }
-}
-
 function showAllRecipes() {
   recipes.forEach(recipe => {
     let domRecipe = document.getElementById(`${recipe.id}`);
     domRecipe.style.display = "block";
   });
-  showWelcomeBanner();
+  domUpdates.showWelcomeBanner();
 }
 
 // CREATE AND USE PANTRY
@@ -310,16 +250,7 @@ function findPantryInfo(ingredientsData) {
       userPantryInfo.push({name: itemInfo.name, count: item.amount});
     }
   });
-  displayPantryInfo(userPantryInfo.sort((a, b) => a.name.localeCompare(b.name)));
-}
-
-function displayPantryInfo(userPantryInfo) {
-  userPantryInfo.forEach(ingredient => {
-    let ingredientHtml = `<li><input type="checkbox" class="pantry-checkbox" id="${ingredient.name}">
-      <label for="${ingredient.name}">${ingredient.name}, ${ingredient.count}</label></li>`;
-    document.querySelector(".pantry-list").insertAdjacentHTML("beforeend",
-      ingredientHtml);
-  });
+  domUpdates.displayPantryInfo(userPantryInfo.sort((a, b) => a.name.localeCompare(b.name)));
 }
 
 function findCheckedPantryBoxes() {

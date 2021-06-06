@@ -1,4 +1,5 @@
 let domUpdates = {
+
   addWelcomeMessage(firstName) {
     let welcomeMsg = `
       <div class="welcome-msg">
@@ -7,6 +8,7 @@ let domUpdates = {
     document.querySelector(".banner-image").insertAdjacentHTML("afterbegin",
       welcomeMsg);
   },
+
   addToDom(recipeInfo, shortRecipeName) {
     let cardHtml = `
       <div class="recipe-card" id=${recipeInfo.id}>
@@ -22,6 +24,7 @@ let domUpdates = {
       </div>`
     document.querySelector("main").insertAdjacentHTML("beforeend", cardHtml);
   },
+
   listTags(allTags) {
     allTags.forEach(tag => {
       let tagHtml = `<li><input type="checkbox" class="checked-tag" id="${tag}">
@@ -45,6 +48,64 @@ let domUpdates = {
     document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", recipeTitle);
   },
 
+  addRecipeImage(recipe) {
+    document.getElementById("recipe-title").style.backgroundImage = `url(${recipe.image})`;
+  },
+
+  generateInstructions(recipe) {
+    let instructionsList = "";
+    let instructions = recipe.instructions.map(i => {
+      return i.instruction
+    });
+    instructions.forEach(i => {
+      instructionsList += `<li>${i}</li>`
+    });
+    document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", "<h4>Instructions</h4>");
+    document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", `<ol>${instructionsList}</ol>`);
+  },
+
+  generateCost(recipe, pantry) {
+    let recipeCost = recipe.calculateIngredientsCost(pantry);
+    document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", `<h4>Recipe Cost: $${recipeCost}</h4>`)
+  },
+
+  exitRecipe() {
+    let fullRecipeInfo = document.querySelector("#recipeInstructions");
+    while (fullRecipeInfo.firstChild &&
+      fullRecipeInfo.removeChild(fullRecipeInfo.firstChild));
+    fullRecipeInfo.style.display = "none";
+    document.getElementById("overlay").remove();
+  },
+
+  showMyRecipesBanner() {
+    document.querySelector(".welcome-msg").style.display = "none";
+    document.querySelector(".my-recipes-banner").style.display = "block";
+  },
+
+  showWelcomeBanner() {
+    document.querySelector(".welcome-msg").style.display = "flex";
+    document.querySelector(".my-recipes-banner").style.display = "none";
+  },
+
+  toggleMenu() {
+    let menuOpen = false;
+    var menuDropdown = document.querySelector(".drop-menu");
+    menuOpen = !menuOpen;
+    if (menuOpen) {
+      menuDropdown.style.display = "block";
+    } else {
+      menuDropdown.style.display = "none";
+    }
+  },
+
+  displayPantryInfo(userPantryInfo) {
+    userPantryInfo.forEach(ingredient => {
+      let ingredientHtml = `<li><input type="checkbox" class="pantry-checkbox" id="${ingredient.name}">
+        <label for="${ingredient.name}">${ingredient.name}, ${ingredient.count}</label></li>`;
+      document.querySelector(".pantry-list").insertAdjacentHTML("beforeend",
+        ingredientHtml);
+    });
+  }
 }
 
 export default domUpdates;
