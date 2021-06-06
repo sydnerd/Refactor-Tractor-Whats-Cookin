@@ -1,6 +1,439 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+/* 📇 Import directory */
+@import 'variables';
+// @import 'styles';
 
-body {
-  background-color: $primary-background;
+body { // body
+  background-color: $dark-grey;
+  display: grid; // grids
+  font-family: "Quicksand", sans-serif; // typography
+  grid-template-columns: 1fr 5fr; // grids
+  grid-template-areas: // grids
+    "header header"
+    "image image"
+    "aside main";
+  height: 100vh; // mixins
+  margin: 0; // mixins
+  padding: 0; // mixins
+  -webkit-font-smoothing: auto; // typography; this only works on macOS; 📌 use font-smooth: auto and see if that works as well
+}
+
+h1 { // headers-banners
+  align-self: center;
+  color: $white;
+  font-family: "Sulphur Point", sans-serif; // typography
+  font-size: 50px; // typography
+  margin: 0%; // mixins
+  padding: 0.5% 0.7% 0%; // mixins
+  width: 70%; // mixins
+}
+
+h2 { // headers-banners
+  color: $med-apple-green;
+  margin: 10px 0px 10px 0px; // mixins
+}
+
+h3 { // headers-banners
+  color: $dark-apple-green;
+  cursor: $point;
+  height: 17%; // mixins
+  margin: 5px 5px 10px 0px; // mixins
+  transition: .8s ease; // transitions
+}
+
+h4 { // headers-banners
+  color: $dark-apple-green;
+  background-color: $light-apple-green;
+  border-radius: 3px; // mixins
+  margin: 10px 0px 0px 0px; // mixins
+  padding: 1px 4px 1px 4px; // mixins
+  width: max-content; // mixins
+}
+
+
+/* HEADER */
+header { // headers-banners
+  display: flex; // flex
+  flex-direction: row; // flex
+  grid-area: header; // grids
+  padding: 0% 0%; // mixins
+  width: 100%; // mixins
+}
+
+span { // headers-banners
+  color: $light-apple-green;
+  font-weight: 400; // typography
+}
+
+.header-apple-icon { // icons
+  height: 40px; // mixins
+  margin-left: 5px; // mixins
+  width: 35px; // mixins
+}
+
+.search-form { // search-form
+  border-radius: 15px 15px 15px 15px; // mixins
+  border: 3px outset $light-apple-green; // mixins
+  box-shadow: 0px 0px 7px 0px #475d74; // mixins
+  display: flex; // flex
+  flex-direction: row; // flex
+  font-family: "Quicksand", sans-serif; // tyopography
+  justify-content: center; // flex
+  margin: 1.2% 0.5% 1.2% 0%; // mixins
+  width: 100%; // mixins
+}
+
+.search-input { // search-input
+  background-color: $mint-green;
+  background: -webkit-gradient( linear,left top, left bottom, color-stop(0, rgb(255, 255, 255)), color-stop(1, rgb(225,225,225))); // mixins? variables?
+  border-radius: 10px 0px 0px 10px; // mixins
+  border: none; // mixins
+  box-shadow: inset -3px -1px 20px 1px #5c7894; // mixins
+  color: $dark-grey;
+  font-family: "Quicksand", sans-serif; // typography
+  font-size: 42px; // typography
+  height: 100%; // mixins
+  padding: 0% 2% 0% 0%; // mixins
+  text-align: right;
+  transition: .8s ease; // transitions
+  width: 100%; // mixins
+}
+
+.search-input:hover {
+  box-shadow: inset 0px 0px 0px 0px $white; // mixins
+  transition: .8s ease;
+}
+
+.search-input:focus {
+  box-shadow: inset 0px 0px 0px 0px $white; // mixins
+}
+
+.search-input::placeholder {
+  color: $dark-grey;
+  font-size: 20px; // typography
+  text-align: right;
+  text-shadow: none; // typography
+}
+
+.search-input:focus::placeholder {
+  font-size: 0px; // typography
+  transition: .8s ease;
+}
+
+.search-label {
+  display: none; // ♿️ this might be an accessibility issue?
+}
+
+.search-btn {
+  border-left: 3px outset $light-apple-green; // mixins
+  border-radius: 0px 15px 15px 0px; // mixins
+  padding: 1%;
+}
+
+.nav-btn { // buttons or nav?
+  align-items: center; // flex
+  background: $dark-grey no-repeat;
+  border: none; 
+  cursor: $point;
+  display: flex; // flex
+  flex-direction: column; // flex
+  font-size: 0px; // typography
+  font-weight: 700; // typography
+  justify-content: center; // flex
+  margin: 0%; // mixins
+  overflow: hidden; // mixins
+  text-align: center; //
+  transition: .4s ease; // transitions
+  width: 15%; // mixins
+}
+
+.nav-btn:hover { // buttons or nav?
+  color: $light-apple-green;
+  font-size: 14px; // typography
+  text-shadow: 0px 2px 4px black; // mixins
+  transition: .4s ease; // transitions
+}
+
+.nav-btn img { // buttons or nav?
+  max-height: 40px; // mixins
+  max-width: 40px; // mixins
+  padding: 2px 0px; // mixins
+}
+
+.saved-ingredients-btn { // buttons
+  border-left: 3px solid $light-apple-green; // mixins
+}
+
+.ing-pan-btn { // buttons
+  margin: 1% 0%; // mixins
+  padding: 1px 6px 5px 0px; // mixins
+}
+
+
+/* BANNER IMAGE*/
+.banner-image { // headers-banners
+  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url("../images/green-apples.jpg"); // variables? mixins?
+  grid-area: image; // grids
+  height: 150px; // mixins
+  overflow: hidden; // mixins
+  width: 100%; // mixins
+}
+
+.my-recipes-banner,
+.welcome-msg { // headers-banners
+  text-align: center;
+  width: 95%; // mixins
+}
+
+.my-recipes-banner h1,
+.welcome-msg h1 { // headers-banners
+  color: $white;
+  width: 100%; // mixins
+}
+
+.my-recipes-banner { // headers-banners
+  display: none;
+  margin-top: 25px; // mixins
+}
+
+.welcome-msg { // headers-banners
+  margin-top: 50px; // mixins
+}
+
+
+/* FILTER SIDEBAR */
+aside { // sidebar
+  background-color: $white;
+  display: flex; // flex
+  justify-content: center; // flex
+  height: auto; // mixins
+  text-align: center;
+}
+
+.wrap { // ? is this being used anywhere ?
+  background-color: $white;
+  height: 100vh; // mixins
+  padding: 10px; // mixins
+  position: relative; // mixins
+  width: 200px; // mixins
+}
+
+ul { // sidebar
+  list-style-type: none; // mixins
+  text-align: left;
+  padding-left: 35px; // mixins
+}
+
+li { // sidebar
+  margin: 2px; // mixins
+}
+
+
+/* RECIPE CARD SECTION */
+main {
+  grid-area: main; // grids
+  display: flex; // flex
+  justify-content: center; // flex
+  align-content: flex-start; // flex
+  flex-direction: row; // flex
+  flex-wrap: wrap; // flex
+}
+
+.recipe-card {
+  background-color: $white;
+  border: 2px solid $light-apple-green; // mixins
+  border-radius: 7px; // mixins
+  cursor: $point;
+  height: 270px; // mixins
+  margin: 20px; // mixins
+  padding: 15px; // mixins
+  width: 250px; // mixins
+}
+
+.recipe-card:hover .card-photo-preview {
+  opacity: 50%; // mixins
+  transition: .8s ease;
+}
+
+.recipe-card:hover .text {
+  font-size: 20px;
+  opacity: 100%;
+  transition: .5s ease;
+  width: 100%; // mixins
+}
+
+.recipe-card:hover h3 {
+  text-shadow: 0px 0px 4px $light-apple-green; // mixins
+  transition: .8s ease;
+}
+
+.card-apple-icon {
+  cursor: $point;
+  float: right;
+  height: 50px; // mixins
+  padding-bottom: 10px; // mixins
+  width: 45px; // mixins
+}
+
+.card-photo-preview {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 7px; // mixins
+  cursor: $point;
+  height: 130px; // mixins
+  transition: .8s ease;
+  width: 100%; // mixins
+}
+
+.card-photo-container {
+  align-items: center; // flex
+  display: flex; // flex
+  height: 130px;
+  justify-content: center; // flex
+  position: relative; // flex
+}
+
+.text {
+  background: $dark-apple-green;
+  color: $white;
+  font-weight: 700;
+  font-size: 0px;
+  opacity: 0%;
+  padding: 0%; // mixins
+  position: absolute;
+  text-align: center;
+  width: 0%; // mixins
+  transition: .5s ease;
+}
+
+
+/* BUTTONS */
+.show-pantry-recipes-btn,
+.show-all-btn,
+.filter-btn {
+  background-color: $dark-apple-green;
+  border: 0; // mixins
+  border-radius: 3px; // mixins
+  color: $white;
+  cursor: $point;
+  font-family: "Quicksand", sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  padding: 5px 10px 5px 10px; // mixins
+}
+
+.show-pantry-recipes-btn {
+  margin-top: 10px; // mixins
+}
+
+.show-all-btn {
+  height: 40px; // mixins
+  margin-top: 20px; // mixins
+  width: 200px; // mixins
+}
+
+.filter-btn:hover {
+  background-color: $med-apple-green;
+}
+
+
+/* PANTRY LIST */
+.drop-menu {
+  align-items: center;
+  background-color: $light-grey;
+  display: none;
+  height: 600px; // mixins
+  margin-left: 81%; // mixins
+  margin-top: 92px; // mixins
+  overflow: scroll;
+  padding: 12px; // mixins
+  position: absolute;
+  text-align: center;
+  width: 250px; // mixins
+  z-index: 3;
+}
+
+.drop-menu h2 {
+  color: $dark-apple-green;
+  margin: 0px; // mixins
+}
+
+.pantry-list {
+  color: $black;
+  padding-left: 15px; // mixins
+  text-align: left;
+}
+
+
+/* RECIPE INSTRUCTIONS */
+.recipe-instructions {
+  background: $white;
+  border: 3px solid $light-apple-green;
+  border-radius: 10px; // mixins
+  box-shadow: 1px 1px 115px black; // mixins
+  display: none;
+  height: 70%; // mixins
+  margin: 0; // mixins
+  overflow-x: scroll;
+  padding: 1% 1% 1% 1%; // mixins
+  position: fixed;
+  right: 15%;
+  top: 15%;
+  width: 70%;
+  z-index: 1000;
+}
+
+#exit-recipe-btn {
+  background: $white;
+  border: 2px double $dark-apple-green; // mixins
+  border-radius: 5px; // mixins
+  color: $dark-apple-green;
+  cursor: $point;
+  font-size: 20px;
+  font-weight: 700;
+  margin: -4% -3% 2% -1%; // mixins
+  position: fixed;
+  transition: .3s ease;
+}
+
+#exit-recipe-btn:hover {
+  background: $light-apple-green;
+  transition: .3s ease;
+}
+
+#recipe-title {
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 7px 7px 0px 0px; // mixins
+  color: $white;
+  font-size: 30px;
+  margin: 0; // mixins
+  padding: 5%; // mixins
+  text-align: center;
+  text-shadow: 0px 0px 6px black;
+}
+
+.recipe-instructions h4 {
+  background: $white;
+  color: $dark-apple-green;
+}
+
+.recipe-instructions p {
+  margin-left: 2%; // mixins
+}
+
+.recipe-instructions ol {
+  margin-right: 2%; // mixins
+}
+
+#overlay {
+  filter:alpha(opacity=50);
+  background-color: $dark-grey;
+  height:100%; // mixins
+  left:0;
+  opacity:0.5; // mixins
+  position:fixed;
+  top:0;
+  width:100%; // mixins
+  z-index:100;
 }
