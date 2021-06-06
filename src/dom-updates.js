@@ -65,7 +65,7 @@ let domUpdates = {
   },
 
   generateCost(recipe, pantry) {
-    let recipeCost = recipe.calculateIngredientsCost(pantry);
+    let recipeCost = recipe.calculateIngredientsCost(pantry).toFixed(2);
     document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", `<h4>Recipe Cost: $${recipeCost}</h4>`)
   },
 
