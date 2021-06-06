@@ -24,7 +24,8 @@ h1 { // headers-banners
   font-size: 50px; // typography
   margin: 0%; // mixins
   padding: 0.5% 0.7% 0%; // mixins
-  width: 70%; // mixins
+  width: 70%;
+  cursor: $point; // mixins
 }
 
 h2 { // headers-banners
@@ -132,7 +133,7 @@ span { // headers-banners
 .nav-btn { // buttons or nav?
   align-items: center; // flex
   background: $dark-grey no-repeat;
-  border: none; 
+  border: none;
   cursor: $point;
   display: flex; // flex
   flex-direction: column; // flex
@@ -198,7 +199,6 @@ span { // headers-banners
 .welcome-msg { // headers-banners
   margin-top: 50px; // mixins
 }
-
 
 /* FILTER SIDEBAR */
 aside { // sidebar
