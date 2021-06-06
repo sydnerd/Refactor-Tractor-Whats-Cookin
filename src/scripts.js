@@ -272,6 +272,7 @@ function findCheckedPantryBoxes() {
   if (selectedIngredients.length > 0) {
     findRecipesWithCheckedIngredients(selectedIngredients);
   }
+  domUpdates.showMyRecipesBanner()
 }
 
 function findRecipesWithCheckedIngredients(selected) {
