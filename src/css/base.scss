@@ -1,5 +1,6 @@
 /* 📇 Import directory */
 @import 'variables';
+@import 'media-queries';
 // @import 'styles';
 
 body { // body
@@ -132,7 +133,7 @@ span { // headers-banners
 .nav-btn { // buttons or nav?
   align-items: center; // flex
   background: $dark-grey no-repeat;
-  border: none; 
+  border: none;
   cursor: $point;
   display: flex; // flex
   flex-direction: column; // flex
