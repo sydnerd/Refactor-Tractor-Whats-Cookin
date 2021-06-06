@@ -29,7 +29,7 @@ let pantry = [];
 let user;
 
 window.addEventListener("load", loadData)
-window.addEventListener("load", findTags);
+// window.addEventListener("load", findTags);
 allRecipesBtn.addEventListener("click", showAllRecipes);
 filterBtn.addEventListener("click", findCheckedBoxes);
 main.addEventListener("click", addToMyRecipes);
@@ -47,7 +47,7 @@ function loadData() {
       fillCookbook(data[1].recipeData)
       fillPantry(data[0].ingredientsData)
       createCards(data[1].recipeData)
-      findTags(data[1].recipeData)
+      // findTags(data[1].recipeData)
       generateUser(data[2].usersData)
       findPantryInfo(data[0].ingredientsData)
     })
@@ -81,18 +81,18 @@ function createCards(recipeData) {
 }
 
 // FILTER BY RECIPE TAGS
-function findTags(recipeData) {
-  let tags = [];
-  recipeData.forEach(recipe => {
-    recipe.tags.forEach(tag => {
-      if (!tags.includes(tag)) {
-        tags.push(tag);
-      }
-    });
-  });
-  tags.sort();
-  domUpdates.listTags(tags);
-}
+// function findTags(recipeData) {
+//   let tags = [];
+//   recipeData.forEach(recipe => {
+//     recipe.tags.forEach(tag => {
+//       if (!tags.includes(tag)) {
+//         tags.push(tag);
+//       }
+//     });
+//   });
+//   tags.sort();
+//   domUpdates.listTags(tags);
+// }
 
 function findCheckedBoxes() {
   let tagCheckboxes = document.querySelectorAll(".checked-tag");

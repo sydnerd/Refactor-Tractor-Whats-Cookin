@@ -53,9 +53,9 @@ h4 { // headers-banners
 
 /* HEADER */
 header { // headers-banners
+  grid-area: header; // grids
   display: flex; // flex
   flex-direction: row; // flex
-  grid-area: header; // grids
   padding: 0% 0%; // mixins
   width: 100%; // mixins
 }

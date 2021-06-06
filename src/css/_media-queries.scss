@@ -3,6 +3,11 @@
   *{
     border: 1px solid fuchsia;
   }
+
+  .header {
+    flex-flow: column;
+    flex-direction: column;
+  }
 }
 
 /*  */
