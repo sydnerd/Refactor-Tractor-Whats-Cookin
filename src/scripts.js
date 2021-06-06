@@ -171,7 +171,7 @@ function showSavedRecipes() {
     let domRecipe = document.getElementById(`${recipe.id}`);
     domRecipe.style.display = "none";
   });
-  showMyRecipesBanner();
+  domUpdates.showMyRecipesBanner();
 }
 
 // CREATE RECIPE INSTRUCTIONS
@@ -204,11 +204,6 @@ function generateIngredients(recipe) {
 }
 
 // TOGGLE DISPLAYS
-
-function showMyRecipesBanner() {
-  document.querySelector(".welcome-msg").style.display = "none";
-  document.querySelector(".my-recipes-banner").style.display = "block";
-}
 
 function showWelcomeBanner() {
   document.querySelector(".welcome-msg").style.display = "flex";

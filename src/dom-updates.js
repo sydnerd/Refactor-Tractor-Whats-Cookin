@@ -75,7 +75,13 @@ let domUpdates = {
       fullRecipeInfo.removeChild(fullRecipeInfo.firstChild));
     fullRecipeInfo.style.display = "none";
     document.getElementById("overlay").remove();
+  },
+
+  showMyRecipesBanner() {
+    document.querySelector(".welcome-msg").style.display = "none";
+    document.querySelector(".my-recipes-banner").style.display = "block";
   }
+
 }
 
 export default domUpdates;
