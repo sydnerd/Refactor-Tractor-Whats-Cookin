@@ -1,3 +1,6 @@
+/* CSS variables, organized by category  */
+
+
 /* 🎨 Color Palette */
 /* Dark Slate Grey */
 /* used on the body, .search-input, .search-input::placeholder, #overlay */
@@ -37,8 +40,14 @@ $mint-green: #b6dcca;
 $point: pointer;
 
 
-/*  */
-/*  */
+/* 📲 Media Query Screen Sizes */
+$mobile: 250px;
+$tablet: 540px;
+$laptop: 1024px;
+$desktop: 1200px;
+$jumbo-screen: 1450px;
+
+
 
 
 /*  */

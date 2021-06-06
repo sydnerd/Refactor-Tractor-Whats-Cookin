@@ -1,5 +1,6 @@
 /* 📇 Import directory */
 @import 'variables';
+@import 'media-queries';
 // @import 'styles';
 
 body { // body
@@ -11,7 +12,7 @@ body { // body
     "header header"
     "image image"
     "aside main";
-  height: 100vh; // mixins
+  // height: 100vh; // mixins
   margin: 0; // mixins
   padding: 0; // mixins
   -webkit-font-smoothing: auto; // typography; this only works on macOS; 📌 use font-smooth: auto and see if that works as well
@@ -53,9 +54,9 @@ h4 { // headers-banners
 
 /* HEADER */
 header { // headers-banners
+  grid-area: header; // grids
   display: flex; // flex
   flex-direction: row; // flex
-  grid-area: header; // grids
   padding: 0% 0%; // mixins
   width: 100%; // mixins
 }
