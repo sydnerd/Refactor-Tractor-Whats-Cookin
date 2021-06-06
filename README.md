@@ -1,90 +1,98 @@
-# Webpack Starter Kit
+<h1 align="center">🚜 # Refactor Tractor - What's Cookin' - B 🚜</h1>
 
-## Clone This Repo
+<!-- <p align="center"><img src="ADD GIF HERE"></p>
+ -->
+ 
+1. [Contributors](https://github.com/sydnerd/Refactor-Tractor-Whats-Cookin/blob/main/README.md#contributors)
+2. [Project Overview](https://github.com/sydnerd/Refactor-Tractor-Whats-Cookin/blob/main/README.md#project-overview)
+4. [How to use the app](https://github.com/sydnerd/Refactor-Tractor-Whats-Cookin/blob/main/README.md#how-to-use-the-app)
+5. [Technologies Used](https://github.com/sydnerd/Refactor-Tractor-Whats-Cookin/blob/main/README.md#technologies-used)
 
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
 
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
+## Contributors
+- [🥗 Nichele Dunn 🥗](https://github.com/nichelicorn)
+- [🌮 Sydney Bear 🌮](https://github.com/sydnerd) 
+- [🥗 Kat White 🥗](https://github.com/k-atwhite)
+- [🍱 Erica Spitz 🍱](https://github.com/e-spitz)
 
-Now try to commit something and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
+## Project Overview
+### Learning Goals
+- Build on top of pre-existing code that you did not write and navigate someone else’s codebase
+- Make network requests to API endpoints to retrieve and manipulate data
+- Refactor pre-existing code and use inheritance to DRY up repetitive logic
+- Ensure your app is following best practices for accessibility
+- Leverage Sass to DRY up your CSS
+- Incorporate Webpack to streamline your workflow process
 
-## Setup
+This was our first experience being presented with someone else's code and nearly complete website. To be honest, we were frozen in place at first. Seeing all the different ways someone could address logical issues - ways that we had not tried ourselves or even ever considered ourselvs - was a real challenge. We only began to genunilty understand this codeblock after jumping in. 
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo. 
+1. We began by setting up our APIs - so that we could ensure we had the correct data path as we began refactoring.
+2. We then built out the class structure to be clearer and more robest.
+3. We then starting putting out all the small fires - functionality that didn't work, unresponsive aspects, missing images, etc. These small fires often led to larger fires in the javascript logc. 
+4. With a working and functional website in place, we startd to untangle the javaScript that manipulatd the DOM from the logical functions. 
+5. With a cleaner and more scalable file structure - we started to address accessibilty issues - ensuring that our website passed WAVE and Lighthouse. 
+6. And finally! We implemented Sassy CSS. 
 
-Then install the library dependencies. Run:
 
-```bash
-npm install
-```
+## How to use the app
+### Server Setup
+To set up the data server, run the following commands:  
+`git clone git@github.com:turingschool/What-s-cookin--starter-kit-API.git`  
+`cd What-s-cookin--starter-kit-API`  
+`npm install`  
+`npm start`  
+Then, open a new Terminal window
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text and a pink background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+### App Setup
+In the new Terminal window, run the following commands:  
+`git clone git@github.com:k-atwhite/whats-cookin.git`  
+`cd whats-cookin`  
+`npm install`  
+`npm start`  
+Open a window in your web browser of choice, and visit `localhost:8080` to view the app!
 
-## Where to Add Your Code
 
-### JavaScript
+## Technologies Used
+* HTML
+* CSS
+* JavaScript
+* Webpack
+* ESLint
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
 
-**Create all of your feature code files in the `src` directory.**
+## To Do List
 
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
+1. Understand Webpack bundler
+2. Include All Functionality from Original Spec
+3. Fetch data from local server
+4. Identify redundant code in your classes and opportunities for DRYing it up
+5. Refactor **within** your classes to create dynamic methods that use arguments/parameters for changing their behavior
+6. Refactor **across** your classes to create a parent class that others inherit methods from as appropriate **OR** be able to defend your choice for *not* using inheritance.
+7. DOM manipulation should be organized into its own `domUpdates.js` file. And then will be called in the scripts.js
+8. Refactor the existing CSS into Sass. Making use of:
+   1. variables for colors, fonts, etc.
+   2. nesting, when/where appropriate
+   3. at least **two** mixins or extends
+9. Accessibility
+   1. Your app should be **fully responsive** from mobile devices - tablets - laptops
+   2. You must be able to tab through your app and use it without a mouse
+   3. Your app must still be usuable when tested with a colorblind extension
+   4. You must score as close to 100% as possible with the “Lighthouse Accessibility Audit”. Be prepared to explain any accessibility audits your application is failing.
+   5. Your HTML must be written semantically and ARIA tags should be used (*ONLY if needed / appropriate*)
+10. Testing
+    1. Initial values of class properties need tests
+    2. Class methods need tests for all expected outcomes
+    3. Any methods that modify class properties should be test
+    4. **You are not required to test your fetch calls**
 
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
 
-### HTML
 
-Add the HTML you need in the `index.html` file in the `./src` directory. There is some boilerplate HTML that exists from the start that you can modify.
-
-### CSS (SCSS/SASS)
+<!-- ### CSS (SCSS/SASS)
 
 This project is setup to use SCSS/SASS files by default instead of your regular CSS files. Add your SCSS files in the `src/css` directory. There is a `base.scss` file already there, but you can change this file and add multiple SCSS files in this directory.
 
 This might sound weird, but you need to `import` your SCSS files in the JavaScript entry file (`index.js`) for the styles to be applied to your HTML. The example `base.scss` file has already been imported in the JavaScript entry file as an example.
 
-### Images
-
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`index.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
-
-## How to View Your Code in Action
-
-In the terminal, run:
-
-```bash
-npm start
-```
-
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
-
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
 
 ## Linting Your Code
 
@@ -102,4 +110,4 @@ _If you are finished with the functionality and testing of your project_, then y
 
 [GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
 
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
+If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages. -->
