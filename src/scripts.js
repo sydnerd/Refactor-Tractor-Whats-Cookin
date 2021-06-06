@@ -14,7 +14,7 @@ import domUpdates from './dom-updates'
 let allRecipesBtn = document.querySelector("#showAllBtn");
 let filterBtn = document.querySelector("#filterBtn");
 let fullRecipeInfo = document.querySelector("#recipeInstructions");
-let freshPicks = document.querySelector("#fresh-picks")
+let freshPicks = document.querySelector("#freshPicks")
 let main = document.querySelector("main");
 let pantryBtn = document.querySelector("#myPantryBtn");
 let savedRecipesBtn = document.querySelector("#savedRecipesBtn");
@@ -33,7 +33,7 @@ window.addEventListener("load", loadData)
 window.addEventListener("load", findTags);
 allRecipesBtn.addEventListener("click", showAllRecipes);
 filterBtn.addEventListener("click", findCheckedBoxes);
-freshPicks.addEventListener("click", showAllRecipes)
+freshPicks.addEventListener("click", showAllRecipes);
 main.addEventListener("click", addToMyRecipes);
 pantryBtn.addEventListener("click", domUpdates.toggleMenu);
 savedRecipesBtn.addEventListener("click", showSavedRecipes);
