@@ -3,11 +3,10 @@
 <!-- <p align="center"><img src="ADD GIF HERE"></p>
  -->
  
-1. [Contributors]()
-2. [Project Overview]()
-4. [How to use the app]()
-5. [Technologies Used]()
-6. [Challenges!]()
+1. [Contributors](https://github.com/sydnerd/Refactor-Tractor-Whats-Cookin/blob/main/README.md#contributors)
+2. [Project Overview](https://github.com/sydnerd/Refactor-Tractor-Whats-Cookin/blob/main/README.md#project-overview)
+4. [How to use the app](https://github.com/sydnerd/Refactor-Tractor-Whats-Cookin/blob/main/README.md#how-to-use-the-app)
+5. [Technologies Used](https://github.com/sydnerd/Refactor-Tractor-Whats-Cookin/blob/main/README.md#technologies-used)
 
 
 ## Contributors
