@@ -85,7 +85,18 @@ let domUpdates = {
   showWelcomeBanner() {
     document.querySelector(".welcome-msg").style.display = "flex";
     document.querySelector(".my-recipes-banner").style.display = "none";
-  }
+  },
+
+  toggleMenu() {
+    let menuOpen = false;
+    var menuDropdown = document.querySelector(".drop-menu");
+    menuOpen = !menuOpen;
+    if (menuOpen) {
+      menuDropdown.style.display = "block";
+    } else {
+      menuDropdown.style.display = "none";
+    }
+  },
 
 }
 

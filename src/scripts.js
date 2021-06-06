@@ -11,7 +11,7 @@ let allRecipesBtn = document.querySelector("#showAllBtn");
 let filterBtn = document.querySelector("#filterBtn");
 let fullRecipeInfo = document.querySelector("#recipeInstructions");
 let main = document.querySelector("main");
-let menuOpen = false;
+
 let pantryBtn = document.querySelector("#myPantryBtn");
 let savedRecipesBtn = document.querySelector("#savedRecipesBtn");
 let searchBtn = document.querySelector("#searchBtn");
@@ -31,7 +31,7 @@ window.addEventListener("load", findTags);
 allRecipesBtn.addEventListener("click", showAllRecipes);
 filterBtn.addEventListener("click", findCheckedBoxes);
 main.addEventListener("click", addToMyRecipes);
-pantryBtn.addEventListener("click", toggleMenu);
+pantryBtn.addEventListener("click", domUpdates.toggleMenu);
 savedRecipesBtn.addEventListener("click", showSavedRecipes);
 searchBtn.addEventListener("click", searchRecipes);
 showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
@@ -203,13 +203,6 @@ function generateIngredients(recipe) {
   }).join(", ");
 }
 
-// TOGGLE DISPLAYS
-
-// function showWelcomeBanner() {
-//   document.querySelector(".welcome-msg").style.display = "flex";
-//   document.querySelector(".my-recipes-banner").style.display = "none";
-// }
-
 // SEARCH RECIPES
 function pressEnterSearch(event) {
   event.preventDefault();
@@ -235,16 +228,6 @@ function filterNonSearched(filtered) {
 function createRecipeObject(recipes) {
   recipes = recipes.map(recipe => new Recipe(recipe));
   return recipes
-}
-
-function toggleMenu() {
-  var menuDropdown = document.querySelector(".drop-menu");
-  menuOpen = !menuOpen;
-  if (menuOpen) {
-    menuDropdown.style.display = "block";
-  } else {
-    menuDropdown.style.display = "none";
-  }
 }
 
 function showAllRecipes() {
