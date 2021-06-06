@@ -255,16 +255,7 @@ function findPantryInfo(ingredientsData) {
       userPantryInfo.push({name: itemInfo.name, count: item.amount});
     }
   });
-  displayPantryInfo(userPantryInfo.sort((a, b) => a.name.localeCompare(b.name)));
-}
-
-function displayPantryInfo(userPantryInfo) {
-  userPantryInfo.forEach(ingredient => {
-    let ingredientHtml = `<li><input type="checkbox" class="pantry-checkbox" id="${ingredient.name}">
-      <label for="${ingredient.name}">${ingredient.name}, ${ingredient.count}</label></li>`;
-    document.querySelector(".pantry-list").insertAdjacentHTML("beforeend",
-      ingredientHtml);
-  });
+  domUpdates.displayPantryInfo(userPantryInfo.sort((a, b) => a.name.localeCompare(b.name)));
 }
 
 function findCheckedPantryBoxes() {
