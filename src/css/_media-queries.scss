@@ -4,6 +4,11 @@
     border: 1px solid fuchsia;
   }
 
+  .body {
+    display: flex;
+    flex-flow: column;
+  }
+
   .header {
     flex-flow: column;
     flex-direction: column;
@@ -12,6 +17,15 @@
       align-self: center;
       font-size: 65px;
     }
+
+    .search-form {
+      width: 75%;
+      margin: 1%;
+    }
+  }
+
+  .banner-image {
+    width: 77%;
   }
 }
 
