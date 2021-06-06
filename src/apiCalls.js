@@ -23,10 +23,23 @@ const fetchUserData = () => {
     return userPromise
 }
 
+const updatePantry = (endPoint, data) => {
+  return fetch(endPoint, {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(err => console.log("Error"))
+}
 
 export {
     fetchAllData,
     fetchIngredientsData,
     fetchRecipeData,
-    fetchUserData
+    fetchUserData,
+    updatePantry
 };

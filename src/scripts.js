@@ -22,7 +22,10 @@ let searchBtn = document.querySelector("#searchBtn");
 let searchForm = document.querySelector("#searchForm");
 let searchInput = document.querySelector("#search-input");
 let showPantryRecipes = document.querySelector("#showPantryRecipesBtn");
-let tagList = document.querySelector("#tagList");
+let pantryList = document.querySelector("#pantryList");
+// let tagList = document.querySelector("#tagList");
+// let addIng = document.getElementById("addIng");
+// let removeIng = document.getElementById("removeIng");
 let userPantryInfo = [];
 let recipes = [];
 let cookbook = [];
@@ -40,6 +43,11 @@ savedRecipesBtn.addEventListener("click", showSavedRecipes);
 searchBtn.addEventListener("click", searchRecipes);
 showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
 searchForm.addEventListener("submit", pressEnterSearch);
+pantryList.addEventListener("click", postIng)
+
+// addIng.addEventListener("click", test);
+// removeIng.addEventListener("click", test);
+
 
 //WINDOW LOADING FUNCTION
 
@@ -292,3 +300,41 @@ function findRecipesWithCheckedIngredients(selected) {
     }
   })
 }
+
+  function postIng(event) {
+    if (event.target.id === "addIng") {
+      updatePantry("http://localhost:3001/api/v1/users", )
+    //   fetch("http://localhost:3001/api/v1/users", {
+    //     method: 'POST',
+    //     body: JSON.stringify(newData),
+    //     headers: {
+    //       'Content-Type': 'application/json'
+    //     }
+    //   })
+    //   .then(response => response.json())
+    //   .then(data => console.log(newData))
+    //   .catch(err => console.log("Error"))
+    // }
+  }
+
+  // { userID: <number>, ingredientID: <number>, ingredientModification: <number> }
+
+  // {message: '"User # <userID> has 7 units of item # <ingredientID>"' }
+
+//   const newUser = {id: 5, interests: 'blue', name: 'Sydney', status: 'online'}
+// const addUserData = () => {
+//   fetch("http://localhost:3001/api/v1/users", {
+//     method: 'POST',
+//     body: JSON.stringify(newUser),
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }
+//   })
+  // .then(response => response.json())
+  // .then(data => console.log(data))
+  // .catch(err => console.log("There is an error"))
+// }
+//
+// const addItem = document.querySelector(".js-add-item")
+//
+// addItem.addEventListener("click", addUserData)
