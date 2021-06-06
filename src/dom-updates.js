@@ -105,8 +105,7 @@ let domUpdates = {
       document.querySelector(".pantry-list").insertAdjacentHTML("beforeend",
         ingredientHtml);
     });
-  },
-
+  }
 }
 
 export default domUpdates;
