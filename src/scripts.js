@@ -146,7 +146,7 @@ function addToMyRecipes(event) {
       user.removeRecipe(cardId);
     }
   } else if (event.target.id === "exit-recipe-btn") {
-    exitRecipe();
+    domUpdates.exitRecipe();
   } else if (isDescendant(event.target.closest(".recipe-card"), event.target)) {
     openRecipeInfo(event);
   }
@@ -201,18 +201,6 @@ function generateIngredients(recipe) {
     let ingredientAmount = parseFloat(i.quantity.amount.toFixed(2))
     return `${domUpdates.capitalize(ingredient)} (${ingredientAmount} ${i.quantity.unit})`
   }).join(", ");
-}
-//
-// function generateCost(recipe) {
-//   let recipeCost = recipe.calculateIngredientsCost(pantry);
-//   fullRecipeInfo.insertAdjacentHTML("beforeend", `<h4>Recipe Cost: $${recipeCost}</h4>`)
-// }
-
-function exitRecipe() {
-  while (fullRecipeInfo.firstChild &&
-    fullRecipeInfo.removeChild(fullRecipeInfo.firstChild));
-  fullRecipeInfo.style.display = "none";
-  document.getElementById("overlay").remove();
 }
 
 // TOGGLE DISPLAYS

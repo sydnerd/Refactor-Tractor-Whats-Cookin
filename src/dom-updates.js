@@ -1,4 +1,5 @@
 let domUpdates = {
+
   addWelcomeMessage(firstName) {
     let welcomeMsg = `
       <div class="welcome-msg">
@@ -66,6 +67,14 @@ let domUpdates = {
   generateCost(recipe, pantry) {
     let recipeCost = recipe.calculateIngredientsCost(pantry);
     document.querySelector("#recipeInstructions").insertAdjacentHTML("beforeend", `<h4>Recipe Cost: $${recipeCost}</h4>`)
+  },
+
+  exitRecipe() {
+    let fullRecipeInfo = document.querySelector("#recipeInstructions");
+    while (fullRecipeInfo.firstChild &&
+      fullRecipeInfo.removeChild(fullRecipeInfo.firstChild));
+    fullRecipeInfo.style.display = "none";
+    document.getElementById("overlay").remove();
   }
 }
 
