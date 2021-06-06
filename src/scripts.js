@@ -205,10 +205,10 @@ function generateIngredients(recipe) {
 
 // TOGGLE DISPLAYS
 
-function showWelcomeBanner() {
-  document.querySelector(".welcome-msg").style.display = "flex";
-  document.querySelector(".my-recipes-banner").style.display = "none";
-}
+// function showWelcomeBanner() {
+//   document.querySelector(".welcome-msg").style.display = "flex";
+//   document.querySelector(".my-recipes-banner").style.display = "none";
+// }
 
 // SEARCH RECIPES
 function pressEnterSearch(event) {
@@ -252,7 +252,7 @@ function showAllRecipes() {
     let domRecipe = document.getElementById(`${recipe.id}`);
     domRecipe.style.display = "block";
   });
-  showWelcomeBanner();
+  domUpdates.showWelcomeBanner();
 }
 
 // CREATE AND USE PANTRY

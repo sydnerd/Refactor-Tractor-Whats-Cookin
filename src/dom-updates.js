@@ -80,6 +80,11 @@ let domUpdates = {
   showMyRecipesBanner() {
     document.querySelector(".welcome-msg").style.display = "none";
     document.querySelector(".my-recipes-banner").style.display = "block";
+  },
+
+  showWelcomeBanner() {
+    document.querySelector(".welcome-msg").style.display = "flex";
+    document.querySelector(".my-recipes-banner").style.display = "none";
   }
 
 }
