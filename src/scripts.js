@@ -1,16 +1,12 @@
 import { fetchAllData } from './apiCalls';
 import './css/base.scss';
-<<<<<<< HEAD
-// import './css/styles.scss';
+
 import './images/search.png';
 import './images/apple-logo-outline.png';
 import './images/apple-logo.png';
 import './images/cookbook.png';
 import './images/seasoning.png';
-
-=======
 import './css/styles.scss';
->>>>>>> main
 import User from './user';
 import Recipe from './recipe';
 import domUpdates from './dom-updates'
