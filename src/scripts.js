@@ -1,8 +1,6 @@
 import { fetchAllData } from './apiCalls';
-
 import './css/base.scss';
 import './css/styles.scss';
-
 import User from './user';
 import Recipe from './recipe';
 import domUpdates from './dom-updates'
@@ -11,7 +9,6 @@ let allRecipesBtn = document.querySelector("#showAllBtn");
 let filterBtn = document.querySelector("#filterBtn");
 let fullRecipeInfo = document.querySelector("#recipeInstructions");
 let main = document.querySelector("main");
-
 let pantryBtn = document.querySelector("#myPantryBtn");
 let savedRecipesBtn = document.querySelector("#savedRecipesBtn");
 let searchBtn = document.querySelector("#searchBtn");
@@ -24,7 +21,6 @@ let recipes = [];
 let cookbook = [];
 let pantry = [];
 let user;
-
 
 window.addEventListener("load", loadData)
 window.addEventListener("load", findTags);
@@ -60,7 +56,6 @@ function fillPantry(ingredientData) {
 }
 
 //CONTENT LOADING FUNCTIONS
-//Dom Updates - can we keep the instantiation of user?
 function generateUser(userData) {
   user = new User(userData[Math.floor(Math.random() * userData.length)]);
   let firstName = user.name.split(" ")[0];
