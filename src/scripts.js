@@ -25,9 +25,6 @@ let searchForm = document.querySelector("#searchForm");
 let searchInput = document.querySelector("#search-input");
 let showPantryRecipes = document.querySelector("#showPantryRecipesBtn");
 let pantryList = document.querySelector("#pantryList");
-// let tagList = document.querySelector("#tagList");
-// let addIng = document.getElementById("addIng");
-// let removeIng = document.getElementById("removeIng");
 let userPantryInfo = [];
 let recipes = [];
 let cookbook = [];
@@ -309,11 +306,8 @@ function findRecipesWithCheckedIngredients(selected) {
     userPantryInfo.forEach(ingredient => {
       if (+event.target.dataset.id === ingredient.id) {
         event.target.id === "addIng" ? ingredient.count++ && ingredient.ingredientModification++ : ingredient.count-- && ingredient.ingredientModification--
-        console.log("before post ing", ingredient.ingredientModification)
         postIng(ingredient, user.id);
-        console.log("after post ing", ingredient.ingredientModification)
         ingredient.ingredientModification = 0;
-        console.log("after reset", ingredient.ingredientModification)
       }
     })
     domUpdates.displayPantryInfo(userPantryInfo)

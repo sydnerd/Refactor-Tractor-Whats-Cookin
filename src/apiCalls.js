@@ -24,7 +24,6 @@ const fetchUserData = () => {
 }
 
 const postIng = (data, userId) => {
-
   const initObj = { userID: userId, ingredientID: data.id, ingredientModification: data.ingredientModification }
   const init = {
     method: "POST",
