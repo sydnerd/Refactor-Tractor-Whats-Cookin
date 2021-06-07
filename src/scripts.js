@@ -314,25 +314,3 @@ function findRecipesWithCheckedIngredients(selected) {
     })
     domUpdates.displayPantryInfo(userPantryInfo)
 }
-
-  // { userID: <number>, ingredientID: <number>, ingredientModification: <number> }
-
-  // {message: '"User # <userID> has 7 units of item # <ingredientID>"' }
-
-//   const newUser = {id: 5, interests: 'blue', name: 'Sydney', status: 'online'}
-// const addUserData = () => {
-//   fetch("http://localhost:3001/api/v1/users", {
-//     method: 'POST',
-//     body: JSON.stringify(newUser),
-//     headers: {
-//       'Content-Type': 'application/json'
-//     }
-//   })
-  // .then(response => response.json())
-  // .then(data => console.log(data))
-  // .catch(err => console.log("There is an error"))
-// }
-//
-// const addItem = document.querySelector(".js-add-item")
-//
-// addItem.addEventListener("click", addUserData)
