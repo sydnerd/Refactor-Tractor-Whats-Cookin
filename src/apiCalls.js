@@ -23,10 +23,27 @@ const fetchUserData = () => {
     return userPromise
 }
 
+const postIng = (data) => {
+  let updateData = fetch("http://localhost:3001/api/v1/users", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      userID: user.id,
+      ingredientID: +ingredID,
+      ingredientModification: +ingredMod}),
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(err => console.log("Error"))
+  return updateData;
+}
 
 export {
     fetchAllData,
     fetchIngredientsData,
     fetchRecipeData,
-    fetchUserData
+    fetchUserData,
+    postIng
 };

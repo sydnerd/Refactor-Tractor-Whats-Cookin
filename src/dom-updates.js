@@ -99,10 +99,14 @@ let domUpdates = {
   },
 
   displayPantryInfo(userPantryInfo) {
+    let pantryList = document.querySelector(".pantry-list");
+    pantryList.innerHTML = "";
     userPantryInfo.forEach(ingredient => {
       let ingredientHtml = `<li><input type="checkbox" class="pantry-checkbox" id="${ingredient.name}">
-        <label for="${ingredient.name}">${ingredient.name}, ${ingredient.count}</label></li>`;
-      document.querySelector(".pantry-list").insertAdjacentHTML("beforeend",
+        <label for="${ingredient.name}">${ingredient.name}, ${ingredient.count}</label>
+        <button type="button" class="add-ing" id="addIng" data-id="${ingredient.id}">+</button>
+        <button type="button" class="remove-ing" id="removeIng" data-id="${ingredient.id}">-</button></li>`;
+      pantryList.insertAdjacentHTML("beforeend",
         ingredientHtml);
     });
   }

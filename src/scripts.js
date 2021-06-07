@@ -1,4 +1,5 @@
-import { fetchAllData } from './apiCalls';
+import { fetchAllData, postIng } from './apiCalls';
+
 import './css/base.scss';
 
 import './images/search.png';
@@ -9,6 +10,7 @@ import './images/seasoning.png';
 import './css/styles.scss';
 import User from './user';
 import Recipe from './recipe';
+import Ingredient from './ingredient'
 import domUpdates from './dom-updates'
 
 let allRecipesBtn = document.querySelector("#showAllBtn");
@@ -22,12 +24,16 @@ let searchBtn = document.querySelector("#searchBtn");
 let searchForm = document.querySelector("#searchForm");
 let searchInput = document.querySelector("#search-input");
 let showPantryRecipes = document.querySelector("#showPantryRecipesBtn");
-let tagList = document.querySelector("#tagList");
+let pantryList = document.querySelector("#pantryList");
+// let tagList = document.querySelector("#tagList");
+// let addIng = document.getElementById("addIng");
+// let removeIng = document.getElementById("removeIng");
 let userPantryInfo = [];
 let recipes = [];
 let cookbook = [];
 let pantry = [];
 let user;
+let userInfo = [];
 
 window.addEventListener("load", loadData)
 window.addEventListener("load", findTags);
@@ -40,6 +46,11 @@ savedRecipesBtn.addEventListener("click", showSavedRecipes);
 searchBtn.addEventListener("click", searchRecipes);
 showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
 searchForm.addEventListener("submit", pressEnterSearch);
+pantryList.addEventListener("click", updatePantry)
+
+// addIng.addEventListener("click", test);
+// removeIng.addEventListener("click", test);
+
 
 //WINDOW LOADING FUNCTION
 
@@ -63,10 +74,12 @@ function fillPantry(ingredientData) {
   ingredientData.forEach(ingredient => pantry.push(ingredient))
 }
 
+
 //CONTENT LOADING FUNCTIONS
 function generateUser(userData) {
   user = new User(userData[Math.floor(Math.random() * userData.length)]);
   let firstName = user.name.split(" ")[0];
+  userInfo.push(userData)
   domUpdates.addWelcomeMessage(firstName);
 }
 
@@ -256,7 +269,7 @@ function findPantryInfo(ingredientsData) {
     if (itemInfo && originalIngredient) {
       originalIngredient.amount = item.amount;
     } else if (itemInfo) {
-      userPantryInfo.push({name: itemInfo.name, count: item.amount});
+      userPantryInfo.push(new Ingredient(itemInfo, item.amount));
     }
   });
   domUpdates.displayPantryInfo(userPantryInfo.sort((a, b) => a.name.localeCompare(b.name)));
@@ -291,4 +304,13 @@ function findRecipesWithCheckedIngredients(selected) {
       domRecipe.style.display = "none";
     }
   })
+}
+
+  function updatePantry(event) {
+    userPantryInfo.forEach(ingredient => {
+      if (+event.target.dataset.id === ingredient.id) {
+        event.target.id === "addIng" ? ingredient.count++ : ingredient.count--
+      }
+    })
+    domUpdates.displayPantryInfo(userPantryInfo)
 }
