@@ -48,27 +48,26 @@ showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
 searchForm.addEventListener("submit", pressEnterSearch);
 pantryList.addEventListener("click", updatePantry)
 
-// addIng.addEventListener("click", test);
-// removeIng.addEventListener("click", test);
-
-
 //WINDOW LOADING FUNCTION
 
 function loadData() {
   fetchAllData()
     .then(function(data) {
-      fillCookbook(data[1].recipeData)
-      fillPantry(data[0].ingredientsData)
-      createCards(data[1].recipeData)
-      findTags(data[1].recipeData)
-      generateUser(data[2].usersData)
-      findPantryInfo(data[0].ingredientsData)
+      console.log(data)
+      fillCookbook(data[1])
+      fillPantry(data[0])
+      createCards(data[1])
+      findTags(data[1])
+      generateUser(data[2])
+      findPantryInfo(data[0])
     })
 }
 
 function fillCookbook(recipeData) {
+  console.log(recipeData)
   recipeData.forEach(recipe => cookbook.push(recipe))
 }
+
 
 function fillPantry(ingredientData) {
   ingredientData.forEach(ingredient => pantry.push(ingredient))
@@ -309,7 +308,12 @@ function findRecipesWithCheckedIngredients(selected) {
   function updatePantry(event) {
     userPantryInfo.forEach(ingredient => {
       if (+event.target.dataset.id === ingredient.id) {
-        event.target.id === "addIng" ? ingredient.count++ : ingredient.count--
+        event.target.id === "addIng" ? ingredient.count++ && ingredient.ingredientModification++ : ingredient.count-- && ingredient.ingredientModification--
+        console.log("before post ing", ingredient.ingredientModification)
+        postIng(ingredient, user.id);
+        console.log("after post ing", ingredient.ingredientModification)
+        ingredient.ingredientModification = 0;
+        console.log("after reset", ingredient.ingredientModification)
       }
     })
     domUpdates.displayPantryInfo(userPantryInfo)
