@@ -4,6 +4,7 @@ class Ingredient {
     this.name = ingredient.name;
     this.estimatedCostInCents = ingredient.estimatedCostInCents;
     this.count = amount;
+    this.ingredientModification = 0;
   }
 }
 

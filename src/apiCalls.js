@@ -23,21 +23,20 @@ const fetchUserData = () => {
     return userPromise
 }
 
-const postIng = (data) => {
-  let updateData = fetch("http://localhost:3001/api/v1/users", {
+const postIng = (data, userId) => {
+
+  const initObj = { userID: userId, ingredientID: data.id, ingredientModification: data.ingredientModification }
+  const init = {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      userID: user.id,
-      ingredientID: +ingredID,
-      ingredientModification: +ingredMod}),
-  })
-  .then(response => response.json())
+    body: JSON.stringify(initObj)
+  }
+  return fetch("http://localhost:3001/api/v1/users", init)
+  .then(response => console.log(response))
   .then(data => console.log(data))
-  .catch(err => console.log("Error"))
-  return updateData;
+  .catch(err => console.log(err.message))
 }
 
 export {
