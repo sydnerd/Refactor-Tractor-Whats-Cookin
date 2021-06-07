@@ -1,4 +1,5 @@
-import { fetchAllData } from './apiCalls';
+import { fetchAllData, postIng } from './apiCalls';
+
 import './css/base.scss';
 
 import './images/search.png';
@@ -9,6 +10,7 @@ import './images/seasoning.png';
 import './css/styles.scss';
 import User from './user';
 import Recipe from './recipe';
+import Ingredient from './ingredient'
 import domUpdates from './dom-updates'
 
 let allRecipesBtn = document.querySelector("#showAllBtn");
@@ -31,6 +33,7 @@ let recipes = [];
 let cookbook = [];
 let pantry = [];
 let user;
+let userInfo = [];
 
 window.addEventListener("load", loadData)
 window.addEventListener("load", findTags);
@@ -43,7 +46,7 @@ savedRecipesBtn.addEventListener("click", showSavedRecipes);
 searchBtn.addEventListener("click", searchRecipes);
 showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
 searchForm.addEventListener("submit", pressEnterSearch);
-pantryList.addEventListener("click", postIng)
+pantryList.addEventListener("click", updatePantry)
 
 // addIng.addEventListener("click", test);
 // removeIng.addEventListener("click", test);
@@ -71,10 +74,12 @@ function fillPantry(ingredientData) {
   ingredientData.forEach(ingredient => pantry.push(ingredient))
 }
 
+
 //CONTENT LOADING FUNCTIONS
 function generateUser(userData) {
   user = new User(userData[Math.floor(Math.random() * userData.length)]);
   let firstName = user.name.split(" ")[0];
+  userInfo.push(userData)
   domUpdates.addWelcomeMessage(firstName);
 }
 
@@ -264,7 +269,7 @@ function findPantryInfo(ingredientsData) {
     if (itemInfo && originalIngredient) {
       originalIngredient.amount = item.amount;
     } else if (itemInfo) {
-      userPantryInfo.push({name: itemInfo.name, count: item.amount});
+      userPantryInfo.push(new Ingredient(itemInfo, item.amount));
     }
   });
   domUpdates.displayPantryInfo(userPantryInfo.sort((a, b) => a.name.localeCompare(b.name)));
@@ -301,21 +306,14 @@ function findRecipesWithCheckedIngredients(selected) {
   })
 }
 
-  function postIng(event) {
-    if (event.target.id === "addIng") {
-      updatePantry("http://localhost:3001/api/v1/users", )
-    //   fetch("http://localhost:3001/api/v1/users", {
-    //     method: 'POST',
-    //     body: JSON.stringify(newData),
-    //     headers: {
-    //       'Content-Type': 'application/json'
-    //     }
-    //   })
-    //   .then(response => response.json())
-    //   .then(data => console.log(newData))
-    //   .catch(err => console.log("Error"))
-    // }
-  }
+  function updatePantry(event) {
+    userPantryInfo.forEach(ingredient => {
+      if (+event.target.id === ingredient.id) {
+        ingredient.count++
+        console.log(ingredient.count)
+      }
+    })
+}
 
   // { userID: <number>, ingredientID: <number>, ingredientModification: <number> }
 

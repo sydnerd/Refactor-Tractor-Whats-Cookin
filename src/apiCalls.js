@@ -23,23 +23,53 @@ const fetchUserData = () => {
     return userPromise
 }
 
-const updatePantry = (endPoint, data) => {
-  return fetch(endPoint, {
-    method: 'POST',
-    body: JSON.stringify(data),
+const postIng = (data) => {
+  let updateData = fetch("http://localhost:3001/api/v1/users", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
-    }
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      userID: user.id,
+      ingredientID: +ingredID,
+      ingredientModification: +ingredMod}),
   })
   .then(response => response.json())
   .then(data => console.log(data))
   .catch(err => console.log("Error"))
+  return updateData;
 }
+//
+// function adjustPantry(ingredID, ingredMod) {
+//   fetch('https://fe-apps.herokuapp.com/api/v1/whats-cookin/1911/users/wcUsersData', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       userID: user.id,
+//       ingredientID: +ingredID,
+//       ingredientModification: +ingredMod
+//     })
+//   })
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(error => console.log(error))
+//     .then(hidePostForm())
+//     .catch(error => console.log(error))
+// }
+//
+// function hidePostForm() {
+//   document.getElementById('post-to-pantry').style.display = 'none';
+//
+//   users = fetch('https://fe-apps.herokuapp.com/api/v1/whats-cookin/1911/users/wcUsersData')
+//     .then(response => response.json())
+//     .catch(err => alert('Alert, something\'s wrong with your endpoint!', err.message));
 
 export {
     fetchAllData,
     fetchIngredientsData,
     fetchRecipeData,
     fetchUserData,
-    updatePantry
+    postIng
 };
