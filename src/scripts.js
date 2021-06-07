@@ -308,11 +308,11 @@ function findRecipesWithCheckedIngredients(selected) {
 
   function updatePantry(event) {
     userPantryInfo.forEach(ingredient => {
-      if (+event.target.id === ingredient.id) {
-        ingredient.count++
-        console.log(ingredient.count)
+      if (+event.target.dataset.id === ingredient.id) {
+        event.target.id === "addIng" ? ingredient.count++ : ingredient.count--
       }
     })
+    domUpdates.displayPantryInfo(userPantryInfo)
 }
 
   // { userID: <number>, ingredientID: <number>, ingredientModification: <number> }
