@@ -48,10 +48,6 @@ showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
 searchForm.addEventListener("submit", pressEnterSearch);
 pantryList.addEventListener("click", updatePantry)
 
-// addIng.addEventListener("click", test);
-// removeIng.addEventListener("click", test);
-
-
 //WINDOW LOADING FUNCTION
 
 function loadData() {
@@ -313,7 +309,11 @@ function findRecipesWithCheckedIngredients(selected) {
     userPantryInfo.forEach(ingredient => {
       if (+event.target.dataset.id === ingredient.id) {
         event.target.id === "addIng" ? ingredient.count++ && ingredient.ingredientModification++ : ingredient.count-- && ingredient.ingredientModification--
+        console.log("before post ing", ingredient.ingredientModification)
         postIng(ingredient, user.id);
+        console.log("after post ing", ingredient.ingredientModification)
+        ingredient.ingredientModification = 0;
+        console.log("after reset", ingredient.ingredientModification)
       }
     })
     domUpdates.displayPantryInfo(userPantryInfo)
