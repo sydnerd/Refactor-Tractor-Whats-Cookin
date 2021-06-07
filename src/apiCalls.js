@@ -34,7 +34,7 @@ const postIng = (data, userId) => {
     body: JSON.stringify(initObj)
   }
   return fetch("http://localhost:3001/api/v1/users", init)
-  .then(response => console.log(response))
+  .then(response => response.json())
   .then(data => console.log(data))
   .catch(err => console.log(err.message))
 }
