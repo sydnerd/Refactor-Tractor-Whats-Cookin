@@ -30,37 +30,37 @@ body { // body
 //   cursor: $point; // mixins
 // }
 
-h2 { // headers-banners
-  color: $med-apple-green;
-  margin: 10px 0px 10px 0px; // mixins
-}
+// h2 { // headers-banners
+//   color: $med-apple-green;
+//   margin: 10px 0px 10px 0px; // mixins
+// }
 
-h3 { // headers-banners
-  color: $dark-apple-green;
-  cursor: $point;
-  height: 17%; // mixins
-  margin: 5px 5px 10px 0px; // mixins
-  transition: .8s ease; // transitions
-}
+// h3 { // headers-banners
+//   color: $dark-apple-green;
+//   cursor: $point;
+//   height: 17%; // mixins
+//   margin: 5px 5px 10px 0px; // mixins
+//   transition: .8s ease; // transitions
+// }
 
-h4 { // headers-banners
-  color: $dark-apple-green;
-  background-color: $light-apple-green;
-  border-radius: 3px; // mixins
-  margin: 10px 0px 0px 0px; // mixins
-  padding: 1px 4px 1px 4px; // mixins
-  width: max-content; // mixins
-}
+// h4 { // headers-banners
+//   color: $dark-apple-green;
+//   background-color: $light-apple-green;
+//   border-radius: 3px; // mixins
+//   margin: 10px 0px 0px 0px; // mixins
+//   padding: 1px 4px 1px 4px; // mixins
+//   width: max-content; // mixins
+// }
 
 
 /* HEADER */
-header { // headers-banners
-  grid-area: header; // grids
-  display: flex; // flex
-  flex-direction: row; // flex
-  padding: 0% 0%; // mixins
-  width: 100%; // mixins
-}
+// header { // headers-banners
+//   grid-area: header; // grids
+//   display: flex; // flex
+//   flex-direction: row; // flex
+//   padding: 0% 0%; // mixins
+//   width: 100%; // mixins
+// }
 
 span { // headers-banners
   color: $light-apple-green;
