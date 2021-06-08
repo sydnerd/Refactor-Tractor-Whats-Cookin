@@ -6,9 +6,9 @@ describe('Ingredient', () => {
   let ingredient1, ingredient2, ingredient3;
 
   beforeEach('Instantiate ingredient', () => {
-    ingredient1 = new Ingredient(1094, 'powdered sugar', 312);
-    ingredient2 = new Ingredient(234, 'eggs', 523);
-    ingredient3 = new Ingredient(23453, 'butter', 524);
+    ingredient1 = new Ingredient({ id: 1094, name: 'powdered sugar', estimatedCostInCents: 312 });
+    ingredient2 = new Ingredient({ id: 234, name: 'eggs', estimatedCostInCents: 523 });
+    ingredient3 = new Ingredient({ id: 23453, name: 'butter', estimatedCostInCents: 524 });
   });
 
   it('Should be a function', () => {
@@ -22,6 +22,8 @@ describe('Ingredient', () => {
   });
 
   it('Should have an id', () => {
+    console.log('ingre2 <>>>', ingredient2);
+    console.log('ingre3 <>>>', ingredient3);
     expect(ingredient2.id).to.equal(234);
     expect(ingredient3.id).to.equal(23453);
   });

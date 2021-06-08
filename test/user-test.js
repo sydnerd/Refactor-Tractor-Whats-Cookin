@@ -4,7 +4,7 @@ import User from '../src/user';
 import { users, testRecipes } from '../src/data/test-data-users';
 
 
-describe.only('User', () => {
+describe('User', () => {
   let userInfo;
   let user1;
   let user2;
