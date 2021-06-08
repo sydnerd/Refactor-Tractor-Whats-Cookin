@@ -308,7 +308,6 @@ function separateAPIfromChecklist(event) {
 }
 
   function updatePantry(event) {
-    console.log("hello")
     userPantryInfo.forEach(ingredient => {
       if (+event.target.dataset.id === ingredient.id) {
         event.target.id === "addIng" ? ingredient.count++ && ingredient.ingredientModification++ : ingredient.count-- && ingredient.ingredientModification--
