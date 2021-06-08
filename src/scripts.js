@@ -49,7 +49,6 @@ pantryList.addEventListener("click", updatePantry)
 function loadData() {
   fetchAllData()
     .then(function(data) {
-      console.log(data)
       fillCookbook(data[1])
       fillPantry(data[0])
       createCards(data[1])
@@ -60,7 +59,6 @@ function loadData() {
 }
 
 function fillCookbook(recipeData) {
-  console.log(recipeData)
   recipeData.forEach(recipe => cookbook.push(recipe))
 }
 
