@@ -10,6 +10,7 @@ let domUpdates = {
   },
 
   addToDom(recipeInfo, shortRecipeName) {
+
     let cardHtml = `
       <div class="recipe-card" id=${recipeInfo.id}>
         <h3 maxlength="40">${shortRecipeName}</h3>
