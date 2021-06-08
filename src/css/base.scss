@@ -1,6 +1,7 @@
 /* 📇 Import directory */
 @import 'variables';
 @import 'media-queries';
+@import 'headers-banners';
 // @import 'styles';
 
 body { // body
@@ -18,16 +19,16 @@ body { // body
   -webkit-font-smoothing: auto; // typography; this only works on macOS; 📌 use font-smooth: auto and see if that works as well
 }
 
-h1 { // headers-banners
-  align-self: center;
-  color: $white;
-  font-family: "Sulphur Point", sans-serif; // typography
-  font-size: 50px; // typography
-  margin: 0%; // mixins
-  padding: 0.5% 0.7% 0%; // mixins
-  width: 70%;
-  cursor: $point; // mixins
-}
+// h1 { // headers-banners
+//   align-self: center;
+//   color: $white;
+//   font-family: "Sulphur Point", sans-serif; // typography
+//   font-size: 50px; // typography
+//   margin: 0%; // mixins
+//   padding: 0.5% 0.7% 0%; // mixins
+//   width: 70%;
+//   cursor: $point; // mixins
+// }
 
 h2 { // headers-banners
   color: $med-apple-green;
