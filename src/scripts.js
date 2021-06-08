@@ -42,7 +42,7 @@ savedRecipesBtn.addEventListener("click", showSavedRecipes);
 searchBtn.addEventListener("click", searchRecipes);
 showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
 searchForm.addEventListener("submit", pressEnterSearch);
-pantryList.addEventListener("click", updatePantry)
+pantryList.addEventListener("click", separateAPIfromChecklist)
 
 // WINDOW LOADING FUNCTION
 
@@ -299,7 +299,16 @@ function findRecipesWithCheckedIngredients(selected) {
   })
 }
 
+function separateAPIfromChecklist(event) {
+  if (event.target.id === "addIng") {
+    updatePantry(event)
+  } else if (event.target.id === "removeIng") {
+    updatePantry(event)
+  }
+}
+
   function updatePantry(event) {
+    console.log("hello")
     userPantryInfo.forEach(ingredient => {
       if (+event.target.dataset.id === ingredient.id) {
         event.target.id === "addIng" ? ingredient.count++ && ingredient.ingredientModification++ : ingredient.count-- && ingredient.ingredientModification--
