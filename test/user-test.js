@@ -26,6 +26,8 @@ describe('User', () => {
 
   it('should be a new instance of User', () => {
     expect(user1).to.be.an.instanceof(User);
+    expect(user2).to.be.an.instanceof(User);
+    expect(user3).to.be.an.instanceof(User);
   })
 
   it('should store an id', () => {
@@ -33,6 +35,12 @@ describe('User', () => {
     expect(user2.id).to.equal(2);
     expect(user3.id).to.equal(3);
   });
+
+  it('should store the id as a number', () => {
+    expect(user1.id).to.be.a('number');
+    expect(user2.id).to.be.a('number');
+    expect(user3.id).to.be.a('number');
+  })
 
   it('should store a name', () => {
     expect(user1.name).to.equal('Padme Amidala');
