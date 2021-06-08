@@ -22,8 +22,6 @@ describe('Ingredient', () => {
   });
 
   it('Should have an id', () => {
-    console.log('ingre2 <>>>', ingredient2);
-    console.log('ingre3 <>>>', ingredient3);
     expect(ingredient2.id).to.equal(234);
     expect(ingredient3.id).to.equal(23453);
   });
