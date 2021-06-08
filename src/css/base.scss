@@ -6,7 +6,7 @@
 body { // body
   background-color: $dark-grey;
   display: grid; // grids
-  font-family: "Quicksand", sans-serif; // typography
+  font-family: $quicksand;
   grid-template-columns: 1fr 5fr; // grids
   grid-template-areas: // grids
     "header header"
@@ -21,8 +21,8 @@ body { // body
 h1 { // headers-banners
   align-self: center;
   color: $white;
-  font-family: "Sulphur Point", sans-serif; // typography
-  font-size: 50px; // typography
+  font-family: $sulphurPoint;
+  font-size: 50px; 
   margin: 0%; // mixins
   padding: 0.5% 0.7% 0%; // mixins
   width: 70%;
@@ -78,7 +78,7 @@ span { // headers-banners
   box-shadow: 0px 0px 7px 0px #475d74; // mixins
   display: flex; // flex
   flex-direction: row; // flex
-  font-family: "Quicksand", sans-serif; // tyopography
+  font-family: $quicksand; // tyopography
   justify-content: center; // flex
   margin: 1.2% 0.5% 1.2% 0%; // mixins
   width: 100%; // mixins
@@ -91,7 +91,7 @@ span { // headers-banners
   border: none; // mixins
   box-shadow: inset -3px -1px 20px 1px #5c7894; // mixins
   color: $dark-grey;
-  font-family: "Quicksand", sans-serif; // typography
+  font-family: $quicksand; // typography
   font-size: 42px; // typography
   height: 100%; // mixins
   padding: 0% 2% 0% 0%; // mixins
@@ -317,7 +317,7 @@ main {
   border-radius: 3px; // mixins
   color: $white;
   cursor: $point;
-  font-family: "Quicksand", sans-serif;
+  font-family: $quicksand;
   font-size: 12pt;
   font-weight: bold;
   padding: 5px 10px 5px 10px; // mixins
