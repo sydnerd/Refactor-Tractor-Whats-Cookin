@@ -5,7 +5,6 @@ import { users, testRecipes } from '../src/data/test-data-users';
 
 
 describe('User', () => {
-  let userInfo;
   let user1;
   let user2;
   let user3;
