@@ -3,8 +3,6 @@ class User {
     this.id = user.id;
     this.name = user.name;
     this.pantry = user.pantry;
-    // possibly could instantiate a new Pantry here instead
-    // this.pantry = new Pantry(ingredients);
     this.favoriteRecipes = [];
     this.recipesToCook = [];
   }

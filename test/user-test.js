@@ -4,8 +4,7 @@ import User from '../src/user';
 import { users, testRecipes } from '../src/data/test-data-users';
 
 
-describe.only('User', () => {
-  let userInfo;
+describe('User', () => {
   let user1;
   let user2;
   let user3;
@@ -26,6 +25,8 @@ describe.only('User', () => {
 
   it('should be a new instance of User', () => {
     expect(user1).to.be.an.instanceof(User);
+    expect(user2).to.be.an.instanceof(User);
+    expect(user3).to.be.an.instanceof(User);
   })
 
   it('should store an id', () => {
@@ -34,16 +35,34 @@ describe.only('User', () => {
     expect(user3.id).to.equal(3);
   });
 
+  it('should store the id as a number', () => {
+    expect(user1.id).to.be.a('number');
+    expect(user2.id).to.be.a('number');
+    expect(user3.id).to.be.a('number');
+  });
+
   it('should store a name', () => {
     expect(user1.name).to.equal('Padme Amidala');
     expect(user2.name).to.equal('Ahsoka Tano');
     expect(user3.name).to.equal('Leia Organa');
   });
 
+  it('should store the name as a string', () => {
+    expect(user1.name).to.be.a('string');
+    expect(user2.name).to.be.a('string');
+    expect(user3.name).to.be.a('string');
+  });
+
   it('should store a pantry', () => {
     expect(user1.pantry[0].ingredient).to.equal(1);
     expect(user2.pantry[1].ingredient).to.equal(3);
     expect(user3.pantry[2].ingredient).to.equal(5);
+  });
+
+  it('should store the pantry as an array', () => {
+    expect(user1.pantry).to.be.an('array');
+    expect(user2.pantry).to.be.an('array');
+    expect(user3.pantry).to.be.an('array');
   });
 
   it('should store an empty favoriteRecipes array', () => {

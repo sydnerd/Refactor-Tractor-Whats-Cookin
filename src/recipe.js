@@ -15,7 +15,7 @@ class Recipe {
       return acc;
     }, 0);
     return totalCost / 100;
-  };
+  }
 }
 
 module.exports = Recipe;

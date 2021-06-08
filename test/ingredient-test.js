@@ -6,9 +6,9 @@ describe('Ingredient', () => {
   let ingredient1, ingredient2, ingredient3;
 
   beforeEach('Instantiate ingredient', () => {
-    ingredient1 = new Ingredient(1094, 'powdered sugar', 312);
-    ingredient2 = new Ingredient(234, 'eggs', 523);
-    ingredient3 = new Ingredient(23453, 'butter', 524);
+    ingredient1 = new Ingredient({ id: 1094, name: 'powdered sugar', estimatedCostInCents: 312 }, 1);
+    ingredient2 = new Ingredient({ id: 234, name: 'eggs', estimatedCostInCents: 523 }, 2);
+    ingredient3 = new Ingredient({ id: 23453, name: 'butter', estimatedCostInCents: 524 });
   });
 
   it('Should be a function', () => {
@@ -45,5 +45,14 @@ describe('Ingredient', () => {
   it('Should have cost in cents be a number', () => {
     expect(ingredient3.estimatedCostInCents).to.be.a('number');
   });
+
+  it('Should have a count to store the number of ingredient available', () => {
+    expect(ingredient1.count).to.equal(1);
+    expect(ingredient2.count).to.equal(2);
+  })
+
+  it('Should have a default count of zero if nothing is provided', () => {
+    expect(ingredient3.count).to.equal(0);
+  })
 
 });

@@ -33,7 +33,6 @@ let user;
 let userInfo = [];
 
 window.addEventListener("load", loadData)
-window.addEventListener("load", findTags);
 allRecipesBtn.addEventListener("click", showAllRecipes);
 filterBtn.addEventListener("click", findCheckedBoxes);
 freshPicks.addEventListener("click", showAllRecipes);
@@ -45,12 +44,11 @@ showPantryRecipes.addEventListener("click", findCheckedPantryBoxes);
 searchForm.addEventListener("submit", pressEnterSearch);
 pantryList.addEventListener("click", updatePantry)
 
-//WINDOW LOADING FUNCTION
+// WINDOW LOADING FUNCTION
 
 function loadData() {
   fetchAllData()
     .then(function(data) {
-      console.log(data)
       fillCookbook(data[1])
       fillPantry(data[0])
       createCards(data[1])
@@ -61,7 +59,6 @@ function loadData() {
 }
 
 function fillCookbook(recipeData) {
-  console.log(recipeData)
   recipeData.forEach(recipe => cookbook.push(recipe))
 }
 
@@ -71,7 +68,7 @@ function fillPantry(ingredientData) {
 }
 
 
-//CONTENT LOADING FUNCTIONS
+// CONTENT LOADING FUNCTIONS
 function generateUser(userData) {
   user = new User(userData[Math.floor(Math.random() * userData.length)]);
   let firstName = user.name.split(" ")[0];
