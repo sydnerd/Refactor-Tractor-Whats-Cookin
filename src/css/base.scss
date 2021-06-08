@@ -3,6 +3,11 @@
 @import 'media-queries';
 // @import 'styles';
 
+
+
+@import 'reset';
+
+
 body { // body
   background-color: $dark-grey;
   display: grid; // grids
