@@ -1,13 +1,13 @@
 /* 📇 Import directory */
 @import 'variables';
 @import 'media-queries';
+@import 'typography'
 @import 'headers-banners';
-// @import 'styles';
 
 body { // body
   background-color: $dark-grey;
   display: grid; // grids
-  font-family: "Quicksand", sans-serif; // typography
+  font-family: $quicksand;
   grid-template-columns: 1fr 5fr; // grids
   grid-template-areas: // grids
     "header header"
@@ -31,7 +31,7 @@ body { // body
   box-shadow: 0px 0px 7px 0px #475d74; // mixins
   display: flex; // flex
   flex-direction: row; // flex
-  font-family: "Quicksand", sans-serif; // tyopography
+  font-family: $quicksand;
   justify-content: center; // flex
   margin: 1.2% 0.5% 1.2% 0%; // mixins
   width: 100%; // mixins
@@ -44,7 +44,7 @@ body { // body
   border: none; // mixins
   box-shadow: inset -3px -1px 20px 1px #5c7894; // mixins
   color: $dark-grey;
-  font-family: "Quicksand", sans-serif; // typography
+  font-family: $quicksand;
   font-size: 42px; // typography
   height: 100%; // mixins
   padding: 0% 2% 0% 0%; // mixins
@@ -239,7 +239,7 @@ main {
   border-radius: 3px; // mixins
   color: $white;
   cursor: $point;
-  font-family: "Quicksand", sans-serif;
+  font-family: $quicksand;
   font-size: 12pt;
   font-weight: bold;
   padding: 5px 10px 5px 10px; // mixins
