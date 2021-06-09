@@ -1,8 +1,8 @@
 /* 📇 Import directory */
 @import 'variables';
 @import 'media-queries';
-@import 'typography';
-// @import 'styles';
+@import 'typography'
+@import 'headers-banners';
 
 body { // body
   background-color: $dark-grey;
@@ -17,54 +17,6 @@ body { // body
   margin: 0; // mixins
   padding: 0; // mixins
   -webkit-font-smoothing: auto; // typography; this only works on macOS; 📌 use font-smooth: auto and see if that works as well
-}
-
-h1 { // headers-banners
-  align-self: center;
-  color: $white;
-  font-family: $sulphurPoint;
-  font-size: 50px;
-  margin: 0%; // mixins
-  padding: 0.5% 0.7% 0%; // mixins
-  width: 70%;
-  cursor: $point; // mixins
-}
-
-h2 { // headers-banners
-  color: $med-apple-green;
-  margin: 10px 0px 10px 0px; // mixins
-}
-
-h3 { // headers-banners
-  color: $dark-apple-green;
-  cursor: $point;
-  height: 17%; // mixins
-  margin: 5px 5px 10px 0px; // mixins
-  transition: .8s ease; // transitions
-}
-
-h4 { // headers-banners
-  color: $dark-apple-green;
-  background-color: $light-apple-green;
-  border-radius: 3px; // mixins
-  margin: 10px 0px 0px 0px; // mixins
-  padding: 1px 4px 1px 4px; // mixins
-  width: max-content; // mixins
-}
-
-
-/* HEADER */
-header { // headers-banners
-  grid-area: header; // grids
-  display: flex; // flex
-  flex-direction: row; // flex
-  padding: 0% 0%; // mixins
-  width: 100%; // mixins
-}
-
-span { // headers-banners
-  color: $light-apple-green;
-  font-weight: 400; // typography
 }
 
 .header-apple-icon { // icons
@@ -169,37 +121,6 @@ span { // headers-banners
 .ing-pan-btn { // buttons
   margin: 1% 0%; // mixins
   padding: 1px 6px 5px 0px; // mixins
-}
-
-
-/* BANNER IMAGE*/
-.banner-image { // headers-banners
-  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url("../images/green-apples.jpg"); // variables? mixins?
-  grid-area: image; // grids
-  height: 150px; // mixins
-  overflow: hidden; // mixins
-  width: 100%; // mixins
-}
-
-.my-recipes-banner,
-.welcome-msg { // headers-banners
-  text-align: center;
-  width: 95%; // mixins
-}
-
-.my-recipes-banner h1,
-.welcome-msg h1 { // headers-banners
-  color: $white;
-  width: 100%; // mixins
-}
-
-.my-recipes-banner { // headers-banners
-  display: none;
-  margin-top: 25px; // mixins
-}
-
-.welcome-msg { // headers-banners
-  margin-top: 50px; // mixins
 }
 
 /* FILTER SIDEBAR */
