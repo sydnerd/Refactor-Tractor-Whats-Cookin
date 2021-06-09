@@ -2,7 +2,9 @@
 
 <!-- <p align="center"><img src="ADD GIF HERE"></p>
  -->
- 
+## Deployed Page
+[See here](http://sydnerd.github.io/Refactor-Tractor-Whats-Cookin)
+
 1. [Contributors](https://github.com/sydnerd/Refactor-Tractor-Whats-Cookin/blob/main/README.md#contributors)
 2. [Project Overview](https://github.com/sydnerd/Refactor-Tractor-Whats-Cookin/blob/main/README.md#project-overview)
 4. [How to use the app](https://github.com/sydnerd/Refactor-Tractor-Whats-Cookin/blob/main/README.md#how-to-use-the-app)
@@ -11,7 +13,7 @@
 
 ## Contributors
 - [🥗 Nichele Dunn 🥗](https://github.com/nichelicorn)
-- [🌮 Sydney Bear 🌮](https://github.com/sydnerd) 
+- [🌮 Sydney Bear 🌮](https://github.com/sydnerd)
 - [🥗 Kat White 🥗](https://github.com/k-atwhite)
 - [🍱 Erica Spitz 🍱](https://github.com/e-spitz)
 
@@ -24,14 +26,14 @@
 - Leverage Sass to DRY up your CSS
 - Incorporate Webpack to streamline your workflow process
 
-This was our first experience being presented with someone else's code and nearly complete website. To be honest, we were frozen in place at first. Seeing all the different ways someone could address logical issues - ways that we had not tried ourselves or even ever considered ourselvs - was a real challenge. We only began to genunilty understand this codeblock after jumping in. 
+This was our first experience being presented with someone else's code and nearly complete website. To be honest, we were frozen in place at first. Seeing all the different ways someone could address logical issues - ways that we had not tried ourselves or even ever considered ourselvs - was a real challenge. We only began to genunilty understand this codeblock after jumping in.
 
 1. We began by setting up our APIs - so that we could ensure we had the correct data path as we began refactoring.
 2. We then built out the class structure to be clearer and more robest.
-3. We then starting putting out all the small fires - functionality that didn't work, unresponsive aspects, missing images, etc. These small fires often led to larger fires in the javascript logc. 
-4. With a working and functional website in place, we startd to untangle the javaScript that manipulatd the DOM from the logical functions. 
-5. With a cleaner and more scalable file structure - we started to address accessibilty issues - ensuring that our website passed WAVE and Lighthouse. 
-6. And finally! We implemented Sassy CSS. 
+3. We then starting putting out all the small fires - functionality that didn't work, unresponsive aspects, missing images, etc. These small fires often led to larger fires in the javascript logc.
+4. With a working and functional website in place, we startd to untangle the javaScript that manipulatd the DOM from the logical functions.
+5. With a cleaner and more scalable file structure - we started to address accessibilty issues - ensuring that our website passed WAVE and Lighthouse.
+6. And finally! We implemented Sassy CSS.
 
 
 ## How to use the app
@@ -84,30 +86,3 @@ Open a window in your web browser of choice, and visit `localhost:8080` to view 
     2. Class methods need tests for all expected outcomes
     3. Any methods that modify class properties should be test
     4. **You are not required to test your fetch calls**
-
-
-
-<!-- ### CSS (SCSS/SASS)
-
-This project is setup to use SCSS/SASS files by default instead of your regular CSS files. Add your SCSS files in the `src/css` directory. There is a `base.scss` file already there, but you can change this file and add multiple SCSS files in this directory.
-
-This might sound weird, but you need to `import` your SCSS files in the JavaScript entry file (`index.js`) for the styles to be applied to your HTML. The example `base.scss` file has already been imported in the JavaScript entry file as an example.
-
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
-
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages. -->
