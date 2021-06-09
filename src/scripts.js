@@ -62,11 +62,9 @@ function fillCookbook(recipeData) {
   recipeData.forEach(recipe => cookbook.push(recipe))
 }
 
-
 function fillPantry(ingredientData) {
   ingredientData.forEach(ingredient => pantry.push(ingredient))
 }
-
 
 // CONTENT LOADING FUNCTIONS
 function generateUser(userData) {
