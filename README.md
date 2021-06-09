@@ -1,7 +1,7 @@
 <h1 align="center">🚜 # Refactor Tractor - What's Cookin' - B 🚜</h1>
 
-<!-- <p align="center"><img src="ADD GIF HERE"></p>
- -->
+<p align="center"><img src="https://media.giphy.com/media/muBOgkSI6Rv9B7cPEA/giphy.gif"></p>
+
 ## Deployed Page
 [See here](http://sydnerd.github.io/Refactor-Tractor-Whats-Cookin)
 
@@ -53,6 +53,23 @@ In the new Terminal window, run the following commands:
 `npm start`  
 Open a window in your web browser of choice, and visit `localhost:8080` to view the app!
 
+## Load Recipes
+<p><img src="https://media.giphy.com/media/54bjynlR23L00WxPdA/giphy.gif"</p>
+
+## Search Bar
+<p><img src="https://media.giphy.com/media/Ve4l3EEar38nqGXqkD/giphy.gif"</p>
+ 
+## Add to My Recipes
+ <p><img src="https://media.giphy.com/media/M5hobgks8qDj6D8mpE/giphy.gif"</p>
+
+## Filter by Tags
+  <p><img src="https://media.giphy.com/media/NMaHvlHu2k6mSjgZ0P/giphy.gif"</p>
+   
+## Filter Pantry
+<p><img src="https://media.giphy.com/media/J8kckTdj8S0rTGMb55/giphy.gif"</p>
+ 
+## Add or Remove Ingredient from Pantry
+<p><img src="https://media.giphy.com/media/rFGkqdw86BmfULi3he/giphy.gif"</p>
 
 ## Technologies Used
 * HTML
