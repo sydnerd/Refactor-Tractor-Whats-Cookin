@@ -1,41 +1,27 @@
 /* 📱 Mobile  */
 @media screen and (min-width: $mobile) and (max-width: $tablet - 1) {
-  // * {
-  //   border: 1px solid fuchsia;
-  // }
 
   .body {
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
   }
 
   .header {
     flex-flow: column;
-    flex-direction: column;
+    align-items: center;
 
     h1 {
+      display: flex;
+      flex-direction: row;
       align-self: center;
-      font-size: 65px;
+      font-size: 40px;
+      margin: .3em;
     }
 
     .search-form {
       width: 75%;
       margin: 1%;
+      align-self: center;
     }
   }
-
-  .banner-image {
-    width: 77%;
-  }
 }
-
-/*  */
-
-
-/*  */
-
-
-/*  */
-
-
-/*  */
