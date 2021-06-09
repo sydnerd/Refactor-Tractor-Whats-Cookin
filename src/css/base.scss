@@ -1,19 +1,14 @@
 /* 📇 Import directory */
 @import 'variables';
 @import 'media-queries';
-
-
-
-
-
-
-
+@import 'typography';
+@import 'headers-banners';
 @import 'reset';
 
 body {
   background-color: $dark-grey;
   display: grid;
-  font-family: "Quicksand", sans-serif;
+  font-family: $quicksand;
   grid-template-columns: 1fr 5fr;
   grid-template-areas:
     "header header"
@@ -24,70 +19,22 @@ body {
   -webkit-font-smoothing: auto;
 }
 
-h1 {
-  align-self: center;
-  color: $white;
-  font-family: "Sulphur Point", sans-serif;
-  font-size: 50px;
-  margin: 0%;
-  padding: 0.5% 0.7% 0%;
-  width: 70%;
-  cursor: $point;
+.header-apple-icon { // icons
+  height: 40px; // mixins
+  margin-left: 5px; // mixins
+  width: 35px; // mixins
 }
 
-h2 {
-  color: $med-apple-green;
-  margin: 10px 0px 10px 0px;
-}
-
-h3 {
-  color: $dark-apple-green;
-  cursor: $point;
-  height: 17%;
-  margin: 5px 5px 10px 0px;
-  transition: .8s ease;
-}
-
-h4 {
-  color: $dark-apple-green;
-  background-color: $light-apple-green;
-  border-radius: 3px;
-  margin: 10px 0px 0px 0px;
-  padding: 1px 4px 1px 4px;
-  width: max-content;
-}
-
-
-/* HEADER */
-header {
-  grid-area: header;
-  display: flex;
-  flex-direction: row;
-  padding: 0% 0%;
-  width: 100%;
-}
-
-span {
-  color: $light-apple-green;
-  font-weight: 400;
-}
-
-.header-apple-icon {
-  height: 40px;
-  margin-left: 5px;
-  width: 35px;
-}
-
-.search-form {
-  border-radius: 15px 15px 15px 15px;
-  border: 3px outset $light-apple-green;
-  box-shadow: 0px 0px 7px 0px #475d74;
-  display: flex;
-  flex-direction: row;
-  font-family: "Quicksand", sans-serif;
-  justify-content: center;
-  margin: 1.2% 0.5% 1.2% 0%;
-  width: 100%;
+.search-form { // search-form
+  border-radius: 15px 15px 15px 15px; // mixins
+  border: 3px outset $light-apple-green; // mixins
+  box-shadow: 0px 0px 7px 0px #475d74; // mixins
+  display: flex; // flex
+  flex-direction: row; // flex
+  font-family: $quicksand;
+  justify-content: center; // flex
+  margin: 1.2% 0.5% 1.2% 0%; // mixins
+  width: 100%; // mixins
 }
 
 .search-input {
@@ -97,7 +44,7 @@ span {
   border: none;
   box-shadow: inset -3px -1px 20px 1px #5c7894;
   color: $dark-grey;
-  font-family: "Quicksand", sans-serif;
+  font-family: $quicksand;
   font-size: 42px;
   height: 100%;
   padding: 0% 2% 0% 0%;
@@ -176,37 +123,6 @@ span {
   padding: 1px 6px 5px 0px;
 }
 
-
-/* BANNER IMAGE*/
-.banner-image {
-  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url("../images/green-apples.jpg");
-  grid-area: image;
-  height: 150px;
-  overflow: hidden;
-  width: 100%;
-}
-
-.my-recipes-banner,
-.welcome-msg {
-  text-align: center;
-  width: 95%;
-}
-
-.my-recipes-banner h1,
-.welcome-msg h1 {
-  color: $white;
-  width: 100%;
-}
-
-.my-recipes-banner {
-  display: none;
-  margin-top: 25px;
-}
-
-.welcome-msg {
-  margin-top: 50px;
-}
-
 /* FILTER SIDEBAR */
 aside {
   background-color: $white;
@@ -233,7 +149,6 @@ ul {
 li {
   margin: 2px;
 }
-
 
 /* RECIPE CARD SECTION */
 main {
@@ -323,7 +238,7 @@ main {
   border-radius: 3px;
   color: $white;
   cursor: $point;
-  font-family: "Quicksand", sans-serif;
+  font-family: $quicksand;
   font-size: 12pt;
   font-weight: bold;
   padding: 5px 10px 5px 10px;

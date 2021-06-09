@@ -1,5 +1,7 @@
 let domUpdates = {
 
+  menuOpen: false,
+
   addWelcomeMessage(firstName) {
     let welcomeMsg = `
       <div class="welcome-msg">
@@ -10,6 +12,7 @@ let domUpdates = {
   },
 
   addToDom(recipeInfo, shortRecipeName) {
+
     let cardHtml = `
       <article class="recipe-card" id=${recipeInfo.id} tabindex="0">
         <h3 maxlength="40">${shortRecipeName}</h3>
@@ -88,10 +91,9 @@ let domUpdates = {
   },
 
   toggleMenu() {
-    let menuOpen = false;
     var menuDropdown = document.querySelector(".drop-menu");
-    menuOpen = !menuOpen;
-    if (menuOpen) {
+    this.menuOpen = !this.menuOpen;
+    if (this.menuOpen) {
       menuDropdown.style.display = "block";
     } else {
       menuDropdown.style.display = "none";
