@@ -1,124 +1,119 @@
 /* 📇 Import directory */
 @import 'variables';
 @import 'media-queries';
-// @import 'styles';
-
-
 
 @import 'reset';
 
-
-body { // body
+body {
   background-color: $dark-grey;
-  display: grid; // grids
-  font-family: "Quicksand", sans-serif; // typography
-  grid-template-columns: 1fr 5fr; // grids
-  grid-template-areas: // grids
+  display: grid;
+  font-family: "Quicksand", sans-serif;
+  grid-template-columns: 1fr 5fr;
+  grid-template-areas:
     "header header"
     "image image"
     "aside main";
-  // height: 100vh; // mixins
-  margin: 0; // mixins
-  padding: 0; // mixins
-  -webkit-font-smoothing: auto; // typography; this only works on macOS; 📌 use font-smooth: auto and see if that works as well
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: auto;
 }
 
-h1 { // headers-banners
+h1 {
   align-self: center;
   color: $white;
-  font-family: "Sulphur Point", sans-serif; // typography
-  font-size: 50px; // typography
-  margin: 0%; // mixins
-  padding: 0.5% 0.7% 0%; // mixins
+  font-family: "Sulphur Point", sans-serif;
+  font-size: 50px;
+  margin: 0%;
+  padding: 0.5% 0.7% 0%;
   width: 70%;
-  cursor: $point; // mixins
+  cursor: $point;
 }
 
-h2 { // headers-banners
+h2 {
   color: $med-apple-green;
-  margin: 10px 0px 10px 0px; // mixins
+  margin: 10px 0px 10px 0px;
 }
 
-h3 { // headers-banners
+h3 {
   color: $dark-apple-green;
   cursor: $point;
-  height: 17%; // mixins
-  margin: 5px 5px 10px 0px; // mixins
-  transition: .8s ease; // transitions
+  height: 17%;
+  margin: 5px 5px 10px 0px;
+  transition: .8s ease;
 }
 
-h4 { // headers-banners
+h4 {
   color: $dark-apple-green;
   background-color: $light-apple-green;
-  border-radius: 3px; // mixins
-  margin: 10px 0px 0px 0px; // mixins
-  padding: 1px 4px 1px 4px; // mixins
-  width: max-content; // mixins
+  border-radius: 3px;
+  margin: 10px 0px 0px 0px;
+  padding: 1px 4px 1px 4px;
+  width: max-content;
 }
 
 
 /* HEADER */
-header { // headers-banners
-  grid-area: header; // grids
-  display: flex; // flex
-  flex-direction: row; // flex
-  padding: 0% 0%; // mixins
-  width: 100%; // mixins
+header {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  padding: 0% 0%;
+  width: 100%;
 }
 
-span { // headers-banners
+span {
   color: $light-apple-green;
-  font-weight: 400; // typography
+  font-weight: 400;
 }
 
-.header-apple-icon { // icons
-  height: 40px; // mixins
-  margin-left: 5px; // mixins
-  width: 35px; // mixins
+.header-apple-icon {
+  height: 40px;
+  margin-left: 5px;
+  width: 35px;
 }
 
-.search-form { // search-form
-  border-radius: 15px 15px 15px 15px; // mixins
-  border: 3px outset $light-apple-green; // mixins
-  box-shadow: 0px 0px 7px 0px #475d74; // mixins
-  display: flex; // flex
-  flex-direction: row; // flex
-  font-family: "Quicksand", sans-serif; // tyopography
-  justify-content: center; // flex
-  margin: 1.2% 0.5% 1.2% 0%; // mixins
-  width: 100%; // mixins
+.search-form {
+  border-radius: 15px 15px 15px 15px;
+  border: 3px outset $light-apple-green;
+  box-shadow: 0px 0px 7px 0px #475d74;
+  display: flex;
+  flex-direction: row;
+  font-family: "Quicksand", sans-serif;
+  justify-content: center;
+  margin: 1.2% 0.5% 1.2% 0%;
+  width: 100%;
 }
 
-.search-input { // search-input
+.search-input {
   background-color: $mint-green;
-  background: -webkit-gradient( linear,left top, left bottom, color-stop(0, rgb(255, 255, 255)), color-stop(1, rgb(225,225,225))); // mixins? variables?
-  border-radius: 10px 0px 0px 10px; // mixins
-  border: none; // mixins
-  box-shadow: inset -3px -1px 20px 1px #5c7894; // mixins
+  background: -webkit-gradient( linear,left top, left bottom, color-stop(0, rgb(255, 255, 255)), color-stop(1, rgb(225,225,225)));
+  border-radius: 10px 0px 0px 10px;
+  border: none;
+  box-shadow: inset -3px -1px 20px 1px #5c7894;
   color: $dark-grey;
-  font-family: "Quicksand", sans-serif; // typography
-  font-size: 42px; // typography
-  height: 100%; // mixins
-  padding: 0% 2% 0% 0%; // mixins
+  font-family: "Quicksand", sans-serif;
+  font-size: 42px;
+  height: 100%;
+  padding: 0% 2% 0% 0%;
   text-align: right;
-  transition: .8s ease; // transitions
-  width: 100%; // mixins
+  transition: .8s ease;
+  width: 100%;
 }
 
 .search-input:hover {
-  box-shadow: inset 0px 0px 0px 0px $white; // mixins
+  box-shadow: inset 0px 0px 0px 0px $white;
   transition: .8s ease;
 }
 
 .search-input:focus {
-  box-shadow: inset 0px 0px 0px 0px $white; // mixins
+  box-shadow: inset 0px 0px 0px 0px $white;
 }
 
 .search-input::placeholder {
   color: $dark-grey;
-  font-size: 20px; // typography
+  font-size: 20px;
   text-align: right;
-  text-shadow: none; // typography
+  text-shadow: none;
 }
 
 .search-input:focus::placeholder {
@@ -149,7 +144,7 @@ span { // headers-banners
   margin: 0%; // mixins
   overflow: hidden; // mixins
   text-align: center; //
-  transition: .4s ease; // transitions
+  transition: .4s ease;
   width: 15%; // mixins
 }
 
@@ -179,7 +174,7 @@ span { // headers-banners
 /* BANNER IMAGE*/
 .banner-image { // headers-banners
   background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url("../images/green-apples.jpg"); // variables? mixins?
-  grid-area: image; // grids
+  grid-area: image;
   height: 150px; // mixins
   overflow: hidden; // mixins
   width: 100%; // mixins
@@ -236,7 +231,7 @@ li { // sidebar
 
 /* RECIPE CARD SECTION */
 main {
-  grid-area: main; // grids
+  grid-area: main;
   display: flex; // flex
   justify-content: center; // flex
   align-content: flex-start; // flex
